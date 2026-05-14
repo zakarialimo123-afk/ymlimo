@@ -238,6 +238,40 @@ ul{list-style:none}
 .footer-bottom{text-align:center;padding:20px 0;font-size:.6rem;color:rgba(255,255,255,.15)}
 .footer-bottom .f-legal{font-size:.55rem;color:rgba(255,255,255,.1);margin-top:4px}
 
+/* ===== CHATBOT ===== */
+.chatbot{position:fixed;bottom:82px;right:16px;z-index:9997;font-family:'Inter',sans-serif}
+.chatbot-btn{width:48px;height:48px;border-radius:50%;background:#c8973e;border:none;color:#0f0e19;font-size:1.2rem;cursor:pointer;box-shadow:0 3px 14px rgba(200,151,62,.35);transition:all .3s;display:flex;align-items:center;justify-content:center;position:relative}
+.chatbot-btn:hover{transform:scale(1.06);box-shadow:0 5px 20px rgba(200,151,62,.45)}
+.chatbot-btn::after{content:'';position:absolute;width:8px;height:8px;background:#22c55e;border-radius:50%;top:2px;right:2px;border:2px solid #c8973e}
+.chatbot-popup{position:absolute;bottom:56px;right:0;width:320px;max-height:440px;background:#fff;border-radius:10px;box-shadow:0 8px 36px rgba(0,0,0,.12);overflow:hidden;display:none;flex-direction:column;border:1px solid rgba(0,0,0,.04);opacity:0;transform:translateY(10px) scale(.96);transition:all .25s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.chatbot-popup.open{display:flex;opacity:1;transform:translateY(0) scale(1);pointer-events:all}
+.chatbot-header{display:flex;align-items:center;gap:10px;padding:14px 16px;background:#0f0e19;color:#fff}
+.chatbot-avatar{width:32px;height:32px;border-radius:50%;background:#c8973e;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.chatbot-info{flex:1;min-width:0}
+.chatbot-name{font-size:.75rem;font-weight:600;display:block}
+.chatbot-status{font-size:.6rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px}
+.chatbot-status::before{content:'';width:5px;height:5px;background:#22c55e;border-radius:50%;display:inline-block}
+.chatbot-close{background:none;border:none;color:rgba(255,255,255,.4);font-size:.85rem;cursor:pointer;padding:4px;line-height:1}
+.chatbot-close:hover{color:#fff}
+.chatbot-body{padding:12px 16px;overflow-y:auto;flex:1;min-height:0;display:flex;flex-direction:column;gap:8px}
+.chatbot-body .msg{max-width:85%;padding:10px 14px;border-radius:10px;font-size:.75rem;line-height:1.5;animation:fadeUp .2s ease}
+.chatbot-body .msg.bot{background:#f8f4ee;color:#0f0e19;align-self:flex-start;border-bottom-left-radius:4px}
+.chatbot-body .msg.user{background:#c8973e;color:#0f0e19;align-self:flex-end;border-bottom-right-radius:4px}
+.chatbot-body .msg .msg-label{font-size:.55rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:2px}
+.chatbot-body .msg.bot .msg-label{color:#c8973e}
+.msg-options{display:flex;flex-direction:column;gap:4px;margin-top:6px}
+.msg-options button{padding:8px 12px;border:1px solid #ddd;border-radius:6px;background:#fff;font-size:.7rem;color:#0f0e19;cursor:pointer;transition:all .2s;text-align:left;font-family:'Inter',sans-serif}
+.msg-options button:hover{border-color:#c8973e;background:rgba(200,151,62,.06)}
+.chatbot-footer{display:flex;align-items:center;gap:8px;padding:10px 12px;border-top:1px solid #eee}
+.chatbot-footer input{flex:1;border:none;padding:8px 0;font-size:.75rem;font-family:'Inter',sans-serif;outline:none;color:#0f0e19}
+.chatbot-footer input::placeholder{color:#aaa}
+.chatbot-footer button{background:none;border:none;color:#c8973e;font-size:1rem;cursor:pointer;padding:4px 8px;transition:all .2s}
+.chatbot-footer button:hover{color:#dba854}
+@media(max-width:768px){
+  .chatbot-popup{width:300px;right:-8px;max-height:400px}
+  .chatbot{bottom:76px}
+}
+
 /* ===== STICKY CALL BUTTON (Mobile) ===== */
 .call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(15,14,25,.85);padding:8px 16px;justify-content:center;align-items:center;gap:8px;border-top:1px solid rgba(200,151,62,.15)}
 .call-bar a{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-weight:600;font-size:.8rem;padding:10px 20px;border-radius:6px;text-decoration:none;letter-spacing:.3px;white-space:nowrap}
@@ -1026,6 +1060,36 @@ ul{list-style:none}
   </div>
 </footer>
 
+<div class="chatbot" id="chatbot">
+  <button class="chatbot-btn" id="chatbotBtn" aria-label="Open chat">🎩</button>
+  <div class="chatbot-popup" id="chatbotPopup">
+    <div class="chatbot-header">
+      <span class="chatbot-avatar">🎩</span>
+      <div class="chatbot-info">
+        <span class="chatbot-name">Your Chauffeur</span>
+        <span class="chatbot-status">Online</span>
+      </div>
+      <button class="chatbot-close" id="chatbotClose">✕</button>
+    </div>
+    <div class="chatbot-body" id="chatbotBody">
+      <div class="msg bot">
+        <span class="msg-label">Your Chauffeur</span>
+        Welcome to YM Limousine! I'm here to help. Ask me about our fleet, services, or booking — or pick an option below.
+        <div class="msg-options">
+          <button data-answer="fleet">What vehicles do you have?</button>
+          <button data-answer="pricing">How do I get a quote?</button>
+          <button data-answer="airport">Airport transfers?</button>
+          <button data-answer="human">Talk to a real person</button>
+        </div>
+      </div>
+    </div>
+    <div class="chatbot-footer">
+      <input type="text" id="chatbotInput" placeholder="Type a message..." />
+      <button id="chatbotSend">➤</button>
+    </div>
+  </div>
+</div>
+
 <div class="call-bar">
   <a href="tel:+17738099782" class="call-btn">📞 Call</a>
   <a href="#booking" class="book-btn">Book Now →</a>
@@ -1348,6 +1412,103 @@ ul{list-style:none}
   submitForm('standardForm', 'Standard Booking');
   submitForm('airportForm', 'Airport Transfer');
   submitForm('charterForm', 'Group Charter');
+
+  // Chatbot
+  (function() {
+    var btn = document.getElementById('chatbotBtn');
+    var popup = document.getElementById('chatbotPopup');
+    var close = document.getElementById('chatbotClose');
+    var body = document.getElementById('chatbotBody');
+    var input = document.getElementById('chatbotInput');
+    var send = document.getElementById('chatbotSend');
+    if (!btn) return;
+
+    var answers = {
+      fleet: 'We have 5 vehicle types: <b>Luxury Sedan</b> (up to 3), <b>Luxury SUV</b> (up to 6) — our most popular, <b>Stretch Limousine</b> (up to 10), <b>Sprinter Van</b> (up to 12), and <b>Party Bus</b> (up to 30). All company-owned, all immaculate. Tap "Our Fleet" above to see them!',
+      pricing: 'We offer flat-rate quotes with no surge pricing. Just fill out the booking form and we\'ll respond within minutes with your personalized quote. Or call (773) 809-9782 for an instant quote.',
+      airport: 'Yes! We do airport transfers to O\'Hare and Midway with real-time flight tracking. Your chauffeur meets you at baggage claim with a name sign. Free wait time included — 30 min domestic, 60 min international.',
+      human: 'Absolutely! You can reach us 24/7 at <b>(773) 809-9782</b> or email info@ymlimo.com. Our dispatch team is always here to help.'
+    };
+
+    function addMsg(text, type) {
+      var div = document.createElement('div');
+      div.className = 'msg ' + type;
+      if (type === 'bot') {
+        div.innerHTML = '<span class="msg-label">Your Chauffeur</span>' + text;
+      } else {
+        div.innerHTML = text;
+      }
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function showOptions() {
+      var div = document.createElement('div');
+      div.className = 'msg bot';
+      div.innerHTML = '<span class="msg-label">Your Chauffeur</span>Anything else I can help with?';
+      var optDiv = document.createElement('div');
+      optDiv.className = 'msg-options';
+      [
+        ['fleet','What vehicles?'],
+        ['pricing','How to book?'],
+        ['airport','Airport info'],
+        ['human','Talk to someone']
+      ].forEach(function(pair) {
+        var b = document.createElement('button');
+        b.textContent = pair[1];
+        b.dataset.answer = pair[0];
+        b.addEventListener('click', function() { handleAnswer(this.dataset.answer); });
+        optDiv.appendChild(b);
+      });
+      div.appendChild(optDiv);
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function handleAnswer(key) {
+      if (answers[key]) {
+        addMsg(answers[key], 'bot');
+        setTimeout(showOptions, 1200);
+      }
+    }
+
+    function handleSend() {
+      var text = input.value.trim();
+      if (!text) return;
+      addMsg(text, 'user');
+      input.value = '';
+      // Simulate typing delay then respond
+      setTimeout(function() {
+        var lower = text.toLowerCase();
+        if (lower.indexOf('fleet') >= 0 || lower.indexOf('vehicle') >= 0 || lower.indexOf('suv') >= 0 || lower.indexOf('sedan') >= 0 || lower.indexOf('limo') >= 0) {
+          addMsg(answers.fleet, 'bot');
+        } else if (lower.indexOf('price') >= 0 || lower.indexOf('cost') >= 0 || lower.indexOf('quote') >= 0 || lower.indexOf('rate') >= 0) {
+          addMsg(answers.pricing, 'bot');
+        } else if (lower.indexOf('airport') >= 0 || lower.indexOf('ohare') >= 0 || lower.indexOf('midway') >= 0 || lower.indexOf('flight') >= 0) {
+          addMsg(answers.airport, 'bot');
+        } else if (lower.indexOf('human') >= 0 || lower.indexOf('talk') >= 0 || lower.indexOf('person') >= 0 || lower.indexOf('call') >= 0) {
+          addMsg(answers.human, 'bot');
+        } else {
+          addMsg('Thanks! A real team member will get back to you shortly. In the meantime, feel free to call us at <b>(773) 809-9782</b> for immediate help. 🎩', 'bot');
+        }
+        setTimeout(showOptions, 1200);
+      }, 600);
+    }
+
+    btn.addEventListener('click', function() {
+      popup.classList.toggle('open');
+      if (popup.classList.contains('open')) setTimeout(function() { input.focus(); }, 300);
+    });
+    close.addEventListener('click', function() { popup.classList.remove('open'); });
+    send.addEventListener('click', handleSend);
+    input.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSend(); });
+
+    // Option buttons
+    body.addEventListener('click', function(e) {
+      var b = e.target.closest('[data-answer]');
+      if (b) handleAnswer(b.dataset.answer);
+    });
+  })();
 })();
 </script>
 </body>
