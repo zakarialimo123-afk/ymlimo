@@ -204,6 +204,10 @@ ul{list-style:none}
 .booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{outline:none;border-color:#c8973e;box-shadow:0 0 0 3px rgba(200,151,62,.1)}
 .booking-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%235a5a72'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:28px}
 .booking-form textarea{resize:vertical}
+.booking-form .field-error{border-color:#dc2626!important;box-shadow:0 0 0 3px rgba(220,38,38,.1)!important}
+.booking-form .error-text{font-size:.65rem;color:#dc2626;margin:-4px 0 10px;display:none}
+.booking-form .error-text.show{display:block}
+.booking-form input:valid:not(:placeholder-shown).field-valid{border-color:#22c55e!important;box-shadow:0 0 0 3px rgba(34,197,94,.08)!important}
 .field-group{display:flex;flex-direction:column;gap:2px}
 .field-label{font-size:.62rem;font-weight:600;color:#5a5a72;letter-spacing:.4px;text-transform:uppercase;margin-bottom:0}
 
@@ -642,16 +646,34 @@ ul{list-style:none}
         <!-- STANDARD BOOKING -->
         <form class="booking-section active" id="standardForm">
           <div class="form-row">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="tel" name="phone" placeholder="Phone Number" required />
+            <div class="field-group">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="tel" name="phone" placeholder="Phone Number" required />
+              <span class="error-text"></span>
+            </div>
           </div>
           <div class="form-row">
-            <input type="email" name="email" placeholder="Email" />
-            <input type="number" name="passengers" placeholder="Number of Passengers" min="1" />
+            <div class="field-group">
+              <input type="email" name="email" placeholder="Email" />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="number" name="passengers" placeholder="Number of Passengers" min="1" />
+              <span class="error-text"></span>
+            </div>
           </div>
           <div class="form-row">
-            <input type="text" name="pickup" placeholder="Pickup Location" required />
-            <input type="text" name="dropoff" placeholder="Destination" required />
+            <div class="field-group">
+              <input type="text" name="pickup" placeholder="Pickup Location" required />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="text" name="dropoff" placeholder="Destination" required />
+              <span class="error-text"></span>
+            </div>
           </div>
           <div class="form-row">
             <div class="field-group">
@@ -679,25 +701,50 @@ ul{list-style:none}
         <form class="booking-section" id="airportForm">
           <p style="font-size:.78rem;color:#5a5a72;margin-bottom:16px;">Flight tracking included - we monitor your flight and adjust for delays automatically.</p>
           <div class="form-row">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="tel" name="phone" placeholder="Phone Number" required />
+            <div class="field-group">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="tel" name="phone" placeholder="Phone Number" required />
+              <span class="error-text"></span>
+            </div>
           </div>
           <div class="form-row">
-            <input type="email" name="email" placeholder="Email" />
-            <input type="number" name="passengers" placeholder="Passengers" min="1" />
+            <div class="field-group">
+              <input type="email" name="email" placeholder="Email" />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="number" name="passengers" placeholder="Passengers" min="1" />
+              <span class="error-text"></span>
+            </div>
           </div>
           <div class="form-row three">
-            <input type="text" name="flight_number" placeholder="Flight Number (e.g. AA1234)" required />
-            <input type="text" name="airline" placeholder="Airline (optional)" />
-            <select name="airport_direction">
-              <option value="">Pickup or Drop-off?</option>
-              <option value="pickup">Pickup from Airport</option>
-              <option value="dropoff">Drop-off at Airport</option>
-            </select>
+            <div class="field-group">
+              <input type="text" name="flight_number" placeholder="Flight Number (e.g. AA1234)" required />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="text" name="airline" placeholder="Airline (optional)" />
+            </div>
+            <div class="field-group">
+              <select name="airport_direction">
+                <option value="">Pickup or Drop-off?</option>
+                <option value="pickup">Pickup from Airport</option>
+                <option value="dropoff">Drop-off at Airport</option>
+              </select>
+            </div>
           </div>
           <div class="form-row">
-            <input type="text" name="pickup" placeholder="Pickup Location" required />
-            <input type="text" name="dropoff" placeholder="Destination" required />
+            <div class="field-group">
+              <input type="text" name="pickup" placeholder="Pickup Location" required />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="text" name="dropoff" placeholder="Destination" required />
+              <span class="error-text"></span>
+            </div>
           </div>
           <div class="form-row">
             <div class="field-group">
@@ -725,12 +772,23 @@ ul{list-style:none}
         <form class="booking-section" id="charterForm">
           <p style="font-size:.78rem;color:#5a5a72;margin-bottom:16px;">For groups, corporate events, sports teams, schools, weddings, and conventions. We'll handle the logistics.</p>
           <div class="form-row">
-            <input type="text" name="contact_name" placeholder="Contact Name *" required />
-            <input type="tel" name="contact_phone" placeholder="Contact Phone *" required />
+            <div class="field-group">
+              <input type="text" name="contact_name" placeholder="Contact Name *" required />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="tel" name="contact_phone" placeholder="Contact Phone *" required />
+              <span class="error-text"></span>
+            </div>
           </div>
           <div class="form-row">
-            <input type="email" name="contact_email" placeholder="Contact Email" />
-            <input type="text" name="organization" placeholder="Organization / Group Name" />
+            <div class="field-group">
+              <input type="email" name="contact_email" placeholder="Contact Email" />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="text" name="organization" placeholder="Organization / Group Name" />
+            </div>
           </div>
           <select name="event_type">
             <option value="">Type of Event / Trip</option>
@@ -746,19 +804,30 @@ ul{list-style:none}
             <option value="Other">Other</option>
           </select>
           <div class="form-row">
-            <input type="number" name="total_passengers" placeholder="Total Number of Passengers *" min="1" required />
-            <select name="vehicle_pref">
-              <option value="">Preferred Vehicle</option>
-              <option value="Party Bus (up to 30)">Party Bus (30 pax)</option>
-              <option value="Stretch Limo (up to 10)">Stretch Limousine (10 pax)</option>
-              <option value="Sprinter Van (up to 12)">Sprinter Van (12 pax)</option>
-              <option value="Multiple SUVs">Multiple Luxury SUVs</option>
-              <option value="Mix of vehicles">Mix of vehicles</option>
-            </select>
+            <div class="field-group">
+              <input type="number" name="total_passengers" placeholder="Total Number of Passengers *" min="1" required />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <select name="vehicle_pref">
+                <option value="">Preferred Vehicle</option>
+                <option value="Party Bus (up to 30)">Party Bus (30 pax)</option>
+                <option value="Stretch Limo (up to 10)">Stretch Limousine (10 pax)</option>
+                <option value="Sprinter Van (up to 12)">Sprinter Van (12 pax)</option>
+                <option value="Multiple SUVs">Multiple Luxury SUVs</option>
+                <option value="Mix of vehicles">Mix of vehicles</option>
+              </select>
+            </div>
           </div>
           <div class="form-row">
-            <input type="text" name="pickup" placeholder="Pickup Location" required />
-            <input type="text" name="dropoff" placeholder="Destination" required />
+            <div class="field-group">
+              <input type="text" name="pickup" placeholder="Pickup Location" required />
+              <span class="error-text"></span>
+            </div>
+            <div class="field-group">
+              <input type="text" name="dropoff" placeholder="Destination" required />
+              <span class="error-text"></span>
+            </div>
           </div>
           <div class="form-row three">
             <div class="field-group">
@@ -1010,11 +1079,100 @@ ul{list-style:none}
     });
   });
 
+  // Set today's date as min for all date inputs
+  (function() {
+    var today = new Date();
+    var y = today.getFullYear();
+    var m = String(today.getMonth()+1).padStart(2,'0');
+    var d = String(today.getDate()).padStart(2,'0');
+    var minDate = y+'-'+m+'-'+d;
+    document.querySelectorAll('.booking-form input[type="date"]').forEach(function(inp) {
+      inp.setAttribute('min', minDate);
+    });
+  })();
+
+  // Live field validation on blur
+  document.querySelectorAll('.booking-form input, .booking-form select, .booking-form textarea').forEach(function(field) {
+    field.addEventListener('blur', function() {
+      var err = this.parentElement.querySelector('.error-text');
+      if (err) err.classList.remove('show');
+      this.classList.remove('field-error');
+      this.classList.remove('field-valid');
+      if (!this.value && this.hasAttribute('required')) { return; }
+      var msg = validateField(this);
+      if (msg) {
+        this.classList.add('field-error');
+        if (err) { err.textContent = msg; err.classList.add('show'); }
+      } else if (this.value) {
+        this.classList.add('field-valid');
+      }
+    });
+  });
+
+  // Validation logic
+  function validateField(field) {
+    var val = field.value.trim();
+    var name = field.name || '';
+    var type = field.type || '';
+    var tag = field.tagName;
+    if (!val && field.hasAttribute('required')) return 'This field is required';
+    if (!val) return '';
+    if (type === 'tel' || name.indexOf('phone') >= 0) {
+      var digits = val.replace(/[\s\-\(\)\+\.]/g,'');
+      if (digits.length < 10) return 'Please enter a valid phone number (10+ digits)';
+      if (digits.length > 15) return 'Phone number too long';
+    }
+    if (type === 'email' || name.indexOf('email') >= 0) {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) return 'Please enter a valid email address';
+    }
+    if ((name.indexOf('name') >= 0 || name === 'name' || name === 'contact_name') && val.length < 2) {
+      return 'Name must be at least 2 characters';
+    }
+    if (type === 'date' && field.hasAttribute('min')) {
+      if (val < field.getAttribute('min')) return 'Date cannot be in the past';
+    }
+    if (type === 'number' || name.indexOf('passenger') >= 0 || name.indexOf('total_passenger') >= 0) {
+      var n = parseInt(val);
+      if (isNaN(n) || n < 1) return 'Must be at least 1';
+      if (n > 50) return 'Maximum 50 passengers - please call for groups larger than 50';
+    }
+    if (name.indexOf('pickup') >= 0 && val.length < 5) return 'Please enter a full address or location';
+    if (name.indexOf('dropoff') >= 0 && val.length < 5) return 'Please enter a full address or location';
+    return '';
+  }
+
+  // Main validation for form submission
+  function validateForm(form) {
+    var firstError = null;
+    var fields = form.querySelectorAll('input, select, textarea');
+    fields.forEach(function(field) {
+      var err = field.parentElement.querySelector('.error-text');
+      if (err) err.classList.remove('show');
+      field.classList.remove('field-error');
+      field.classList.remove('field-valid');
+      var msg = validateField(field);
+      if (msg) {
+        field.classList.add('field-error');
+        if (err) { err.textContent = msg; err.classList.add('show'); }
+        if (!firstError) firstError = field;
+      } else if (field.value && field.hasAttribute('required')) {
+        field.classList.add('field-valid');
+      }
+    });
+    if (firstError) {
+      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(function() { firstError.focus(); }, 400);
+      return false;
+    }
+    return true;
+  }
+
   // Form submit helper
   function submitForm(formId, type) {
     var form = document.getElementById(formId);
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      if (!validateForm(this)) return;
       var btn = this.querySelector('button[type="submit"]');
       var originalText = btn.textContent;
       btn.textContent = 'Sending...';
