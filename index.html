@@ -231,9 +231,11 @@ ul{list-style:none}
 
 /* ===== STICKY CALL BUTTON (Mobile) ===== */
 .call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(15,14,25,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:8px 16px;justify-content:center;align-items:center;gap:8px;border-top:1px solid rgba(200,151,62,.15)}
-.call-bar a{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:#c8973e;color:#0f0e19;font-weight:600;font-size:.8rem;padding:10px 24px;border-radius:6px;text-decoration:none;letter-spacing:.3px;white-space:nowrap}
-.call-bar a:hover{background:#dba854}
-.call-bar .call-note{display:none}
+.call-bar a{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-weight:600;font-size:.8rem;padding:10px 20px;border-radius:6px;text-decoration:none;letter-spacing:.3px;white-space:nowrap}
+.call-bar .call-btn{background:#c8973e;color:#0f0e19}
+.call-bar .call-btn:hover{background:#dba854}
+.call-bar .book-btn{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.call-bar .book-btn:hover{background:rgba(200,151,62,.2);border-color:#c8973e;color:#dba854}
 
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.25,.46,.45,.94),transform .6s cubic-bezier(.25,.46,.45,.94)}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -878,8 +880,8 @@ ul{list-style:none}
 </footer>
 
 <div class="call-bar">
-  <a href="tel:+17738099782">📞 Call (773) 809-9782</a>
-  <span class="call-note">24/7 Dispatch</span>
+  <a href="tel:+17738099782" class="call-btn">📞 Call</a>
+  <a href="#booking" class="book-btn">Book Now →</a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
