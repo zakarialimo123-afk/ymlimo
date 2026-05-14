@@ -199,6 +199,8 @@ ul{list-style:none}
 .booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{outline:none;border-color:#d4a13c;box-shadow:0 0 0 3px rgba(212,161,60,.1)}
 .booking-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%235a5a72'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:28px}
 .booking-form textarea{resize:vertical}
+.field-group{display:flex;flex-direction:column;gap:2px}
+.field-label{font-size:.62rem;font-weight:600;color:#5a5a72;letter-spacing:.4px;text-transform:uppercase;margin-bottom:0}
 
 
 .contact-lines{display:flex;flex-direction:column;gap:14px}
@@ -674,8 +676,14 @@ ul{list-style:none}
             <input type="text" name="dropoff" placeholder="Destination" required />
           </div>
           <div class="form-row">
-            <input type="date" name="date" placeholder="Select Date" required />
-            <input type="time" name="time" placeholder="Select Time" required />
+            <div class="field-group">
+              <label class="field-label">Pickup Date</label>
+              <input type="date" name="date" required />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Pickup Time</label>
+              <input type="time" name="time" required />
+            </div>
           </div>
           <select name="vehicle">
             <option value="">Select Vehicle Type</option>
@@ -714,8 +722,14 @@ ul{list-style:none}
             <input type="text" name="dropoff" placeholder="Destination" required />
           </div>
           <div class="form-row">
-            <input type="date" name="date" placeholder="Select Date" required />
-            <input type="time" name="time" placeholder="Select Time" required />
+            <div class="field-group">
+              <label class="field-label">Flight Date</label>
+              <input type="date" name="date" required />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Pickup Time</label>
+              <input type="time" name="time" required />
+            </div>
           </div>
           <select name="vehicle">
             <option value="">Select Vehicle Type</option>
@@ -769,9 +783,34 @@ ul{list-style:none}
             <input type="text" name="dropoff" placeholder="Destination" required />
           </div>
           <div class="form-row three">
-            <input type="date" name="start_date" placeholder="Start Date" required />
-            <input type="date" name="end_date" placeholder="End Date (for multi-day)" />
-            <input type="time" name="daily_time" placeholder="Daily Start Time" />
+            <div class="field-group">
+              <label class="field-label">Start Date</label>
+              <input type="date" name="start_date" required />
+            </div>
+            <div class="field-group">
+              <label class="field-label">End Date</label>
+              <input type="date" name="end_date" />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Daily Start Time</label>
+              <input type="time" name="daily_time" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label class="field-label">Duration (how many hours?)</label>
+              <select name="duration">
+                <option value="">Select duration</option>
+                <option value="3 hours">3+ hours</option>
+                <option value="4 hours">4+ hours</option>
+                <option value="5 hours">5+ hours</option>
+                <option value="6 hours">6+ hours</option>
+                <option value="8 hours">8+ hours</option>
+                <option value="10 hours">10+ hours</option>
+                <option value="12 hours">12+ hours</option>
+                <option value="Full Day">Full Day (12+ hours)</option>
+              </select>
+            </div>
           </div>
           <textarea name="itinerary" rows="3" placeholder="Describe your itinerary, schedule, or special requirements (daily schedule, stops, pickup locations)"></textarea>
           <textarea name="special_reqs" rows="2" placeholder="Special requirements (wheelchair access, restroom needed, catering, etc.)"></textarea>
