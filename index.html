@@ -69,6 +69,8 @@ ul{list-style:none}
 .btn-dark:hover{background:#c8a456;border-color:#c8a456;transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,164,86,.25)}
 .btn-outline{background:transparent;color:#1a1a2e;border-color:#1a1a2e}
 .btn-outline:hover{background:#1a1a2e;color:#fff}
+.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.btn-outline-light:hover{background:#fff;color:#1a1a2e;border-color:#fff}
 .btn-gold{background:#c8a456;color:#fff;border-color:#c8a456}
 .btn-gold:hover{background:#dbb76a;border-color:#dbb76a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,164,86,.25)}
 .btn-ghost{background:transparent;color:#c8a456;border-color:#c8a456}
@@ -92,19 +94,19 @@ ul{list-style:none}
 .nav-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#1a1a2e;padding:4px}
 
 /* ===== HERO ===== */
-.hero{min-height:88vh;display:flex;align-items:center;background:#f8f4ee;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-25%;right:-10%;width:800px;height:800px;background:radial-gradient(circle,rgba(200,164,86,.08),transparent 70%);border-radius:50%}
-.hero::after{content:'';position:absolute;bottom:-30%;left:-5%;width:600px;height:600px;background:radial-gradient(circle,rgba(200,164,86,.05),transparent 70%);border-radius:50%}
-.hero-content{position:relative;z-index:1;max-width:680px;padding:100px 24px 60px}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(200,164,86,.1);color:#c8a456;font-size:.55rem;font-weight:700;letter-spacing:1.5px;padding:5px 12px;border-radius:3px;margin-bottom:20px;text-transform:uppercase}
-.hero h1{font-family:'Playfair Display',serif;font-size:3.6rem;font-weight:700;line-height:1.05;color:#1a1a2e;margin-bottom:14px;letter-spacing:-.5px}
-.hero h1 em{font-style:normal;color:#c8a456}
-.hero-sub{font-size:.95rem;color:#5a5a72;line-height:1.65;margin-bottom:10px;max-width:520px}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
-.hero-metrics{display:flex;gap:40px;flex-wrap:wrap}
+.hero{min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-bg-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(10,10,25,.75) 0%,rgba(10,10,25,.45) 50%,rgba(10,10,25,.2) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:700px;padding:120px 24px 80px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);color:#dbb76a;font-size:.55rem;font-weight:700;letter-spacing:1.5px;padding:6px 14px;border-radius:4px;margin-bottom:20px;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
+.hero h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;line-height:1.05;color:#fff;margin-bottom:16px;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;color:#dbb76a}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.65;margin-bottom:12px;max-width:540px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.hero-metrics{display:flex;gap:48px;flex-wrap:wrap}
 .hero-metric{text-align:center}
-.hero-metric .num{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#c8a456;display:block}
-.hero-metric .label{font-size:.55rem;color:#8a8a9a;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+.hero-metric .num{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#dbb76a;display:block}
+.hero-metric .label{font-size:.55rem;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
 
 /* ===== TRUST BAR ===== */
 .trust-bar{background:#fff;border-bottom:1px solid rgba(0,0,0,.04);padding:28px 0}
@@ -318,13 +320,15 @@ ul{list-style:none}
 
 <!-- ===== HERO ===== -->
 <section class="hero">
+  <img src="img/hero-chicago.jpg" alt="Chicago skyline" class="hero-bg" />
+  <div class="hero-bg-overlay"></div>
   <div class="container hero-content">
     <div class="hero-badge">✦ Company-Owned Fleet · Licensed &amp; Insured · Child Seats Available</div>
     <h1>Flat Rates to O'Hare.<br>No Surge. <em>Ever.</em></h1>
     <p class="hero-sub">Chicago's premium chauffeured transportation. Company-owned fleet — not a broker. Luxury sedans, Escalade SUVs, stretch limos &amp; party buses. Professional chauffeurs. Child seats available. Book in under 2 minutes.</p>
     <div class="hero-ctas">
       <a href="#booking" class="btn btn-gold btn-lg">Book Your Ride →</a>
-      <a href="#pricing" class="btn btn-outline btn-lg">See Pricing</a>
+      <a href="#pricing" class="btn btn-outline-light btn-lg">See Pricing</a>
     </div>
     <div class="hero-metrics">
       <div class="hero-metric"><span class="num">24/7</span><span class="label">Dispatch</span></div>
