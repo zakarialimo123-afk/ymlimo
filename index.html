@@ -124,7 +124,16 @@ ul{list-style:none}
 .fleet{background:#fff;padding:96px 0}
 .fleet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
 .fleet-card{background:#f8f4ee;border-radius:10px;overflow:hidden;border:1px solid rgba(212,161,60,.08);transition:all .4s;cursor:pointer}
-.fleet-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.08);border-color:#d4a13c}
+.fleet-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.06);border-color:#d4a13c}
+.fleet-card:active{transform:scale(.97);transition:transform .1s}
+.fleet-card.expanded{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08);border-color:#d4a13c;background:#fff}
+.fleet-card.expanded:hover{transform:translateY(-4px)}
+.fleet-expand{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1),padding .45s cubic-bezier(.4,0,.2,1);padding:0 22px;background:#fff}
+.fleet-card.expanded .fleet-expand{max-height:300px;padding:0 22px 22px}
+.fleet-x-desc{font-size:.75rem;color:#5a5a72;line-height:1.6;margin-bottom:12px}
+.fleet-x-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px}
+.fleet-x-tags span{background:#f8f4ee;padding:3px 10px;font-size:.6rem;color:#5a5a72;border-radius:3px;border:1px solid rgba(212,161,60,.08)}
+.fleet-book{margin-top:0}
 .fleet-card-image{height:200px;background:linear-gradient(135deg,#0f0e19,#1a1a30);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .fleet-card-image img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:all .5s;opacity:.7}
 .fleet-card:hover .fleet-card-image img{transform:scale(1.08);opacity:.9}
@@ -398,11 +407,11 @@ ul{list-style:none}
   <div class="container">
     <div class="section-heading reveal">
       <span class="section-tag">Our Fleet</span>
-      <h2>Chicago's Premium Fleet</h2>
-      <p>Company-owned, professionally maintained, and driven by background-checked chauffeurs.</p>
+      <h2>Choose Your Ride</h2>
+      <p>Tap any vehicle to see details and book instantly. Company-owned, professionally maintained.</p>
     </div>
     <div class="fleet-grid">
-      <div class="fleet-card reveal">
+      <div class="fleet-card reveal" data-vehicle="sedan">
         <div class="fleet-card-image">
           <img src="img/lincoln-continental.avif" alt="Luxury Sedan" loading="lazy" />
           <span class="fleet-emoji">🚗</span>
@@ -413,8 +422,13 @@ ul{list-style:none}
           <p>Premium sedan for up to 3 passengers. The executive choice for business travel and solo airport transfers.</p>
           <div class="fleet-tags"><span>Leather Seats</span><span>Wi-Fi</span><span>Charging Ports</span><span>Climate Control</span></div>
         </div>
+        <div class="fleet-expand">
+          <p class="fleet-x-desc">Perfect for solo travelers and business executives. Premium leather interior, quiet cabin, climate control, and complimentary Wi-Fi. The smart choice for airport transfers and corporate meetings.</p>
+          <div class="fleet-x-tags"><span>Fuel Included</span><span>Toll Included</span><span>Wait Time Included</span><span>Luggage Assistance</span></div>
+          <button class="btn btn-gold btn-block fleet-book" data-book-vehicle="Luxury Sedan (1-3)">Book Luxury Sedan →</button>
+        </div>
       </div>
-      <div class="fleet-card reveal">
+      <div class="fleet-card reveal" data-vehicle="suv">
         <div class="fleet-card-image">
           <img src="img/cadillac-escalade.jpg" alt="Luxury SUV" loading="lazy" />
           <span class="popular-badge">★ Most Popular</span>
@@ -426,8 +440,13 @@ ul{list-style:none}
           <p>The #1 choice for airport transfers and executive travel. Spacious luxury SUV for up to 6 passengers.</p>
           <div class="fleet-tags"><span>Premium Leather</span><span>Entertainment</span><span>USB Ports</span><span>Extra Luggage</span></div>
         </div>
+        <div class="fleet-expand">
+          <p class="fleet-x-desc">Our most popular vehicle. Spacious cabin with premium leather seating, entertainment system, and generous luggage capacity. Ideal for families, executives, and airport transfers.</p>
+          <div class="fleet-x-tags"><span>Fuel Included</span><span>Toll Included</span><span>Extended Hours</span><span>Child Seats Avail.</span></div>
+          <button class="btn btn-gold btn-block fleet-book" data-book-vehicle="Luxury SUV (1-6)">Book Luxury SUV →</button>
+        </div>
       </div>
-      <div class="fleet-card reveal">
+      <div class="fleet-card reveal" data-vehicle="limo">
         <div class="fleet-card-image">
           <img src="img/stretch-limo.jpg" alt="Stretch Limousine" loading="lazy" />
           <span class="fleet-emoji">🚐</span>
@@ -438,8 +457,13 @@ ul{list-style:none}
           <p>The timeless choice for weddings, proms, and special events. Seats up to 10 passengers in style.</p>
           <div class="fleet-tags"><span>Premium Audio</span><span>LED Lighting</span><span>Privacy Partition</span><span>Champagne Service</span></div>
         </div>
+        <div class="fleet-expand">
+          <p class="fleet-x-desc">The classic celebration vehicle. Premium audio system, LED ambient lighting, privacy partition, and champagne bar service. Make weddings, proms, and special events unforgettable.</p>
+          <div class="fleet-x-tags"><span>Fuel Included</span><span>Red Carpet</span><span>Decorations Avail.</span><span>Multi-Vehicle</span></div>
+          <button class="btn btn-gold btn-block fleet-book" data-book-vehicle="Stretch Limousine (1-10)">Book Stretch Limousine →</button>
+        </div>
       </div>
-      <div class="fleet-card reveal">
+      <div class="fleet-card reveal" data-vehicle="sprinter">
         <div class="fleet-card-image">
           <img src="img/sprinter.jpg" alt="Sprinter Van" loading="lazy" />
           <span class="fleet-emoji">🚐</span>
@@ -450,8 +474,13 @@ ul{list-style:none}
           <p>Perfect for airport shuttles, team transport, and group travel. Seats up to 12 passengers.</p>
           <div class="fleet-tags"><span>High Roof</span><span>Cargo Space</span><span>Climate Control</span><span>Flexible Seating</span></div>
         </div>
+        <div class="fleet-expand">
+          <p class="fleet-x-desc">High-roof design for easy movement. Flexible seating configurations with generous cargo space. Ideal for airport shuttles, sports teams, corporate groups, and equipment transport.</p>
+          <div class="fleet-x-tags"><span>Fuel Included</span><span>Toll Included</span><span>Multi-Stop</span><span>Child Seats Avail.</span></div>
+          <button class="btn btn-gold btn-block fleet-book" data-book-vehicle="Sprinter Van (1-12)">Book Sprinter Van →</button>
+        </div>
       </div>
-      <div class="fleet-card reveal">
+      <div class="fleet-card reveal" data-vehicle="party-bus">
         <div class="fleet-card-image">
           <img src="img/party-bus.jpg" alt="Party Bus" loading="lazy" />
           <span class="fleet-emoji">🚌</span>
@@ -461,6 +490,11 @@ ul{list-style:none}
           <div class="fleet-sub">Night Out · Groups &amp; Events</div>
           <p>Dance floor, premium audio, LED lighting. BYOB friendly. Seats up to 30 passengers.</p>
           <div class="fleet-tags"><span>Dance Floor</span><span>Pro Audio System</span><span>LED Lighting</span><span>Bar &amp; Cooler</span></div>
+        </div>
+        <div class="fleet-expand">
+          <p class="fleet-x-desc">The ultimate party experience on wheels. Dance floor, professional sound system, DJ hookup, LED lighting, and bar area with cooler. BYOB friendly. Seats up to 30 guests.</p>
+          <div class="fleet-x-tags"><span>Fuel Included</span><span>DJ Setup</span><span>Ice &amp; Coolers</span><span>Multi-Stop</span></div>
+          <button class="btn btn-gold btn-block fleet-book" data-book-vehicle="Party Bus (1-30)">Book Party Bus →</button>
         </div>
       </div>
     </div>
@@ -855,6 +889,69 @@ ul{list-style:none}
       var wasActive = item.classList.contains('active');
       document.querySelectorAll('.faq-item').forEach(function(f) { f.classList.remove('active'); });
       if (!wasActive) item.classList.add('active');
+    });
+  });
+
+  // Fleet card expand/collapse
+  document.querySelectorAll('.fleet-card').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      // Don't toggle if clicking the Book button inside
+      if (e.target.closest('.fleet-book')) return;
+      var wasExpanded = this.classList.contains('expanded');
+      document.querySelectorAll('.fleet-card.expanded').forEach(function(c) { c.classList.remove('expanded'); });
+      if (!wasExpanded) this.classList.add('expanded');
+    });
+  });
+
+  // Fleet Book Now → scroll to booking + pre-select vehicle
+  document.querySelectorAll('.fleet-book').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var vehicle = this.getAttribute('data-book-vehicle');
+      // Close all expanded cards
+      document.querySelectorAll('.fleet-card.expanded').forEach(function(c) { c.classList.remove('expanded'); });
+      // Find all vehicle dropdowns across all booking forms and set the value
+      var selects = document.querySelectorAll('.booking-form select[name="vehicle"], .booking-form select[name="vehicle_pref"]');
+      selects.forEach(function(sel) {
+        if (sel.name === 'vehicle_pref') {
+          // Map to charter form options
+          var map = {
+            'Luxury Sedan (1-3)': 'Multiple SUVs',
+            'Luxury SUV (1-6)': 'Multiple SUVs',
+            'Stretch Limousine (1-10)': 'Stretch Limo (up to 10)',
+            'Party Bus (1-30)': 'Party Bus (up to 30)',
+            'Sprinter Van (1-12)': 'Sprinter Van (up to 12)'
+          };
+          var mapped = map[vehicle] || vehicle;
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === mapped || sel.options[i].text === mapped) {
+              sel.selectedIndex = i; break;
+            }
+          }
+        } else {
+          // Standard/airport form - match exact value
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === vehicle) {
+              sel.selectedIndex = i; break;
+            }
+          }
+        }
+      });
+      // Scroll to booking section
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      // Highlight the selected dropdown briefly
+      setTimeout(function() {
+        selects.forEach(function(s) {
+          if (s.value) {
+            s.style.borderColor = '#d4a13c';
+            s.style.boxShadow = '0 0 0 3px rgba(212,161,60,.15)';
+            setTimeout(function() {
+              s.style.borderColor = '';
+              s.style.boxShadow = '';
+            }, 1500);
+          }
+        });
+      }, 500);
     });
   });
 
