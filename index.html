@@ -92,7 +92,7 @@ ul{list-style:none}
 .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero-bg-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(10,10,25,.75) 0%,rgba(10,10,25,.45) 50%,rgba(10,10,25,.2) 100%);z-index:1}
 .hero-content{position:relative;z-index:2;max-width:740px;padding:120px 24px 80px;margin:0 auto}
-.hero-text-box{background:rgba(10,10,25,.85);padding:36px 40px;border-radius:12px;border:1px solid rgba(255,255,255,.12);display:inline-block;text-align:left}
+.hero-text-box{background:rgba(10,10,25,.85);padding:36px 40px;border-radius:12px;border:1px solid rgba(255,255,255,.12);display:inline-block;text-align:left;transform:translateZ(0)}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;color:#dba854;font-size:.52rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:16px}
 .hero h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;line-height:1.05;color:#fff;margin-bottom:16px;letter-spacing:-.5px}
 .hero h1 em{font-style:normal;color:#dba854}
@@ -102,9 +102,9 @@ ul{list-style:none}
 .hero-cta-primary:hover{transform:translateY(-3px);box-shadow:0 8px 36px rgba(200,151,62,.5);background-position:right center}
 .hero-cta-primary::after{content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transform:skewX(-20deg);transition:left .6s}
 .hero-cta-primary:hover::after{left:125%}
-.hero-cta-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem;padding:18px 36px;border-radius:10px;cursor:pointer;transition:all .4s;letter-spacing:.3px;text-align:center;text-decoration:none;background:rgba(255,255,255,.06);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border:1px solid rgba(255,255,255,.15)}
+.hero-cta-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem;padding:18px 36px;border-radius:10px;cursor:pointer;transition:all .4s;letter-spacing:.3px;text-align:center;text-decoration:none;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.15);transform:translateZ(0)}
 .hero-cta-secondary:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:#fff;transform:translateY(-3px)}
-.hero-metrics{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;margin-top:24px;background:rgba(10,10,25,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:16px 32px;border-radius:10px;border:1px solid rgba(255,255,255,.08)}
+.hero-metrics{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;margin-top:24px;background:rgba(10,10,25,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:16px 32px;border-radius:10px;border:1px solid rgba(255,255,255,.08);will-change:backdrop-filter;transform:translateZ(0)}
 .hero-metric{text-align:center;flex:0 0 auto}
 .hero-metric .num{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#dba854;display:block}
 .hero-metric .label{font-size:.5rem;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
@@ -235,7 +235,7 @@ ul{list-style:none}
 .footer-bottom .f-legal{font-size:.55rem;color:rgba(255,255,255,.1);margin-top:4px}
 
 /* ===== STICKY CALL BUTTON (Mobile) ===== */
-.call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(15,14,25,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:8px 16px;justify-content:center;align-items:center;gap:8px;border-top:1px solid rgba(200,151,62,.15)}
+.call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(15,14,25,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:8px 16px;justify-content:center;align-items:center;gap:8px;border-top:1px solid rgba(200,151,62,.15);will-change:backdrop-filter;transform:translateZ(0)}
 .call-bar a{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-weight:600;font-size:.8rem;padding:10px 20px;border-radius:6px;text-decoration:none;letter-spacing:.3px;white-space:nowrap}
 .call-bar .call-btn{background:#c8973e;color:#0f0e19}
 .call-bar .call-btn:hover{background:#dba854}
