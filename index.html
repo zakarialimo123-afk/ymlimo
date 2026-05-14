@@ -661,7 +661,28 @@ ul{list-style:none}
               <span class="error-text"></span>
             </div>
             <div class="field-group">
-              <input type="number" name="passengers" placeholder="Number of Passengers" min="1" />
+              <select name="passengers">
+                <option value="">Number of Passengers</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16-20">16 - 20</option>
+                <option value="21-25">21 - 25</option>
+                <option value="26-30">26 - 30</option>
+                <option value="30+">30+</option>
+              </select>
               <span class="error-text"></span>
             </div>
           </div>
@@ -716,7 +737,28 @@ ul{list-style:none}
               <span class="error-text"></span>
             </div>
             <div class="field-group">
-              <input type="number" name="passengers" placeholder="Passengers" min="1" />
+              <select name="passengers">
+                <option value="">Number of Passengers</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16-20">16 - 20</option>
+                <option value="21-25">21 - 25</option>
+                <option value="26-30">26 - 30</option>
+                <option value="30+">30+</option>
+              </select>
               <span class="error-text"></span>
             </div>
           </div>
@@ -734,6 +776,18 @@ ul{list-style:none}
                 <option value="pickup">Pickup from Airport</option>
                 <option value="dropoff">Drop-off at Airport</option>
               </select>
+            </div>
+          </div>
+          <div class="form-row airport-row" style="display:none">
+            <div class="field-group">
+              <label class="field-label">Airport</label>
+              <select name="airport">
+                <option value="">Select airport</option>
+                <option value="ORD">O'Hare International (ORD)</option>
+                <option value="MDW">Midway International (MDW)</option>
+                <option value="Other">Other airport</option>
+              </select>
+              <span class="error-text"></span>
             </div>
           </div>
           <div class="form-row">
@@ -805,7 +859,24 @@ ul{list-style:none}
           </select>
           <div class="form-row">
             <div class="field-group">
-              <input type="number" name="total_passengers" placeholder="Total Number of Passengers *" min="1" required />
+              <select name="total_passengers" required>
+                <option value="">Total Number of Passengers *</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11-15">11 - 15</option>
+                <option value="16-20">16 - 20</option>
+                <option value="21-30">21 - 30</option>
+                <option value="31-40">31 - 40</option>
+                <option value="40+">40+</option>
+              </select>
               <span class="error-text"></span>
             </div>
             <div class="field-group">
@@ -1098,6 +1169,22 @@ ul{list-style:none}
       setTimeout(function() {
         if (typeof window.initAutocomplete === 'function') window.initAutocomplete();
       }, 300);
+    });
+  });
+
+  // Airport direction toggle - show airport select when direction chosen
+  document.querySelectorAll('select[name="airport_direction"]').forEach(function(sel) {
+    sel.addEventListener('change', function() {
+      var row = this.closest('form').querySelector('.airport-row');
+      if (!row) return;
+      if (this.value) {
+        row.style.display = 'block';
+        row.querySelector('select').setAttribute('required', '');
+      } else {
+        row.style.display = 'none';
+        row.querySelector('select').removeAttribute('required');
+        row.querySelector('select').selectedIndex = 0;
+      }
     });
   });
 
