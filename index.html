@@ -656,8 +656,8 @@ ul{list-style:none}
             <input type="text" name="dropoff" placeholder="Destination" required />
           </div>
           <div class="form-row">
-            <input type="date" name="date" required />
-            <input type="time" name="time" required />
+            <input type="date" name="date" placeholder="Select Date" required />
+            <input type="time" name="time" placeholder="Select Time" required />
           </div>
           <select name="vehicle">
             <option value="">Select Vehicle Type</option>
@@ -696,8 +696,8 @@ ul{list-style:none}
             <input type="text" name="dropoff" placeholder="Destination" required />
           </div>
           <div class="form-row">
-            <input type="date" name="date" required />
-            <input type="time" name="time" required />
+            <input type="date" name="date" placeholder="Select Date" required />
+            <input type="time" name="time" placeholder="Select Time" required />
           </div>
           <select name="vehicle">
             <option value="">Select Vehicle Type</option>
@@ -867,7 +867,6 @@ ul{list-style:none}
   function fixDatePickers() {
     var dt = document.querySelectorAll('.booking-form input[type="date"], .booking-form input[type="time"]');
     dt.forEach(function(inp) {
-      inp.setAttribute('readonly', true);  // prevent keyboard; native picker still works
       // Force native picker on any tap
       inp.addEventListener('click', function(e) {
         if (typeof this.showPicker === 'function') {
@@ -880,14 +879,6 @@ ul{list-style:none}
           this.showPicker();
         }
       }, {passive:true});
-      // Remove readonly when value is set so form can submit
-      inp.addEventListener('change', function() {
-        this.removeAttribute('readonly');
-      });
-      // On blur (picker closed), also remove readonly if value exists
-      inp.addEventListener('blur', function() {
-        if (this.value) this.removeAttribute('readonly');
-      });
     });
   }
   fixDatePickers();
