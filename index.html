@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>YM Limousine Inc. | Premium Chicago Limo Service · Flat Rates · No Surge</title>
-<meta name="description" content="Chicago's trusted limousine service since 2018. Flat-rate pricing to O'Hare & Midway. Company-owned fleet — not a broker. Luxury sedans, Cadillac Escalade SUVs, stretch limos, party buses. 4.9★ rating. Child seats available. Book in under 2 minutes." />
+<meta name="description" content="Chicago's trusted limousine service. Flat-rate pricing to O'Hare & Midway. Company-owned fleet — not a broker. Luxury sedans, SUVs, stretch limos, party buses. Professional chauffeurs. Child seats available. Book in under 2 minutes." />
 <link rel="canonical" href="https://ymlimo.com" />
 <meta property="og:title" content="YM Limousine Inc. | Chicago's Premium Limo Service" />
 <meta property="og:description" content="Flat-rate Chicago limo service. No surge pricing. Company-owned fleet. Child seats available. Luxury SUVs, sedans, stretch limos & party buses. Licensed & insured. 24/7." />
@@ -43,7 +43,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================
-   YM LIMOUSINE INC. v2 — Premium Redesign
+   YM LIMOUSINE INC. — Premium Styles
    ============================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -52,18 +52,14 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
-/* Container */
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 .container-narrow{max-width:900px;margin:0 auto;padding:0 24px}
-
-/* Sections */
 .section{padding:96px 0}
 .section-heading{text-align:center;max-width:640px;margin:0 auto 56px}
 .section-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#d4a13c;margin-bottom:12px}
 .section-heading h2{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:600;color:#0f0e19;margin-bottom:12px;line-height:1.15}
 .section-heading p{font-size:.92rem;color:#5a5a72;line-height:1.65}
 
-/* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:.8rem;padding:14px 32px;border-radius:8px;cursor:pointer;transition:all .3s;border:1.5px solid transparent;letter-spacing:.3px;text-align:center}
 .btn-dark{background:#0f0e19;color:#fff;border-color:#0f0e19}
 .btn-dark:hover{background:#d4a13c;border-color:#d4a13c;transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,161,60,.25)}
@@ -73,13 +69,10 @@ ul{list-style:none}
 .btn-outline-light:hover{background:#fff;color:#0f0e19;border-color:#fff}
 .btn-gold{background:#d4a13c;color:#0f0e19;border-color:#d4a13c}
 .btn-gold:hover{background:#e0b85c;border-color:#e0b85c;color:#0f0e19;transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,161,60,.3)}
-.btn-ghost{background:transparent;color:#d4a13c;border-color:#d4a13c}
-.btn-ghost:hover{background:rgba(212,161,60,.1)}
 .btn-block{width:100%;justify-content:center}
 .btn-lg{padding:16px 40px;font-size:.85rem}
 .btn-sm{padding:8px 18px;font-size:.7rem}
 
-/* ===== NAVBAR ===== */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.04);height:68px;transition:all .3s}
 .navbar.scrolled{height:60px}
 .nav-container{display:flex;align-items:center;justify-content:space-between;height:68px;transition:height .3s}
@@ -95,7 +88,6 @@ ul{list-style:none}
 .nav-links .nav-call:hover{background:#e0b85c;color:#0f0e19!important}
 .nav-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#0f0e19;padding:4px}
 
-/* ===== HERO ===== */
 .hero{min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden}
 .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero-bg-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(10,10,25,.75) 0%,rgba(10,10,25,.45) 50%,rgba(10,10,25,.2) 100%);z-index:1}
@@ -106,33 +98,28 @@ ul{list-style:none}
 .hero h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;line-height:1.05;color:#fff;margin-bottom:16px;letter-spacing:-.5px}
 .hero h1 em{font-style:normal;color:#e0b85c}
 .hero-sub{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.65;margin-bottom:12px;max-width:540px}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:0}
 .hero-metrics{display:flex;gap:36px;flex-wrap:wrap;justify-content:center;margin-top:24px}
 .hero-metric{text-align:center;flex:0 0 auto}
 .hero-metric .num{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#e0b85c;display:block}
 .hero-metric .label{font-size:.55rem;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
 
-/* ===== TRUST BAR ===== */
 .trust-bar{background:#fff;border-bottom:1px solid rgba(0,0,0,.04);padding:28px 0}
 .trust-grid{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;align-items:center}
 .trust-item{font-size:.7rem;color:#4a4a5a;display:flex;align-items:center;gap:6px;font-weight:500}
 .trust-item .check{color:#22c55e;font-size:.85rem;font-weight:700}
 
-/* ===== AS SEEN IN ===== */
 .as-seen{background:#fff;padding:32px 0;border-bottom:1px solid rgba(0,0,0,.04)}
 .as-seen-label{text-align:center;font-size:.55rem;color:#8a8a9a;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;font-weight:600}
 .as-seen-grid{display:flex;justify-content:center;align-items:center;gap:36px;flex-wrap:wrap}
-.as-seen-item{font-size:.75rem;color:#5a5a72;font-weight:500;letter-spacing:.5px;opacity:.6;transition:opacity .3s}
-.as-seen-item:hover{opacity:1}
-.as-seen-item .star{color:#d4a13c}
+.as-seen-item{font-size:.75rem;color:#5a5a72;font-weight:500;letter-spacing:.5px}
 
-/* ===== PRICING TIERS ===== */
 .pricing{background:#fff;padding:96px 0}
 .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:960px;margin:0 auto}
-.pricing-card{background:#f8f4ee;padding:40px 32px;border:1px solid rgba(200,164,86,.1);border-radius:8px;position:relative;transition:all .3s;text-align:center}
+.pricing-card{background:#f8f4ee;padding:40px 32px;border:1px solid rgba(212,161,60,.1);border-radius:8px;position:relative;transition:all .3s;text-align:center}
 .pricing-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.06);border-color:#d4a13c}
 .pricing-card.popular{border:2px solid #d4a13c;background:#fff}
-.pricing-card .p-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#d4a13c;color:#fff;font-size:.55rem;font-weight:700;letter-spacing:1.5px;padding:4px 14px;border-radius:3px;text-transform:uppercase}
+.pricing-card .p-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#d4a13c;color:#0f0e19;font-size:.55rem;font-weight:700;letter-spacing:1.5px;padding:4px 14px;border-radius:3px;text-transform:uppercase}
 .pricing-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:#0f0e19;margin-bottom:4px}
 .pricing-card .p-sub{font-size:.7rem;color:#8a8a9a;margin-bottom:16px}
 .pricing-card .p-price{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:#0f0e19;margin-bottom:4px}
@@ -143,10 +130,9 @@ ul{list-style:none}
 .pricing-card .p-features li:last-child{border:none}
 .pricing-card .p-features li::before{content:'✓';position:absolute;left:0;color:#d4a13c;font-weight:700}
 
-/* ===== SERVICES ===== */
 .services{background:#f8f4ee;padding:96px 0}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.service-card{background:#fff;padding:32px 28px;border:1px solid rgba(200,164,86,.08);border-radius:6px;transition:all .3s;cursor:default}
+.service-card{background:#fff;padding:32px 28px;border:1px solid rgba(212,161,60,.08);border-radius:6px;transition:all .3s;cursor:default}
 .service-card:hover{border-color:#d4a13c;transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.04)}
 .service-card .s-icon{font-size:1.8rem;margin-bottom:10px;display:block}
 .service-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:#0f0e19;margin-bottom:8px}
@@ -154,10 +140,9 @@ ul{list-style:none}
 .service-card ul li{font-size:.72rem;color:#5a5a72;padding:2px 0;padding-left:14px;position:relative}
 .service-card ul li::before{content:'—';position:absolute;left:0;color:#d4a13c;opacity:.6}
 
-/* ===== FLEET ===== */
 .fleet{background:#fff;padding:96px 0}
 .fleet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.fleet-card{background:#f8f4ee;border-radius:10px;overflow:hidden;border:1px solid rgba(200,164,86,.08);transition:all .4s;cursor:pointer}
+.fleet-card{background:#f8f4ee;border-radius:10px;overflow:hidden;border:1px solid rgba(212,161,60,.08);transition:all .4s;cursor:pointer}
 .fleet-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.08);border-color:#d4a13c}
 .fleet-card-image{height:200px;background:linear-gradient(135deg,#0f0e19,#1a1a30);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .fleet-card-image img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:all .5s;opacity:.7}
@@ -172,39 +157,29 @@ ul{list-style:none}
 .fleet-card-body p{font-size:.75rem;color:#5a5a72;line-height:1.55;margin-bottom:12px}
 .fleet-tags{display:flex;flex-wrap:wrap;gap:4px}
 .fleet-tags span{background:#fff;padding:2px 9px;font-size:.6rem;color:#5a5a72;border-radius:3px;transition:all .3s}
-.fleet-card:hover .fleet-tags span{background:rgba(200,164,86,.08);color:#d4a13c}
-.popular-badge{position:absolute;top:10px;right:10px;background:#d4a13c;color:#fff;font-size:.5rem;font-weight:700;padding:3px 10px;border-radius:3px;z-index:2;letter-spacing:.5px}
+.fleet-card:hover .fleet-tags span{background:rgba(212,161,60,.08);color:#d4a13c}
+.popular-badge{position:absolute;top:10px;right:10px;background:#d4a13c;color:#0f0e19;font-size:.5rem;font-weight:700;padding:3px 10px;border-radius:3px;z-index:2;letter-spacing:.5px}
 
-/* ===== WHY YM ===== */
 .why{background:#f8f4ee;padding:96px 0}
 .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.why-card{text-align:center;padding:32px 24px;background:#fff;border:1px solid rgba(200,164,86,.06);border-radius:6px;transition:all .3s}
+.why-card{text-align:center;padding:32px 24px;background:#fff;border:1px solid rgba(212,161,60,.06);border-radius:6px;transition:all .3s}
 .why-card:hover{border-color:#d4a13c;transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.04)}
 .why-card .why-icon{font-size:2rem;margin-bottom:10px;display:block}
 .why-card h4{font-family:'Playfair Display',serif;font-size:1rem;color:#0f0e19;margin-bottom:6px}
 .why-card p{font-size:.75rem;color:#5a5a72;line-height:1.5}
 
-/* ===== REVIEWS ===== */
 .reviews{background:#fff;padding:96px 0}
-.reviews-summary{text-align:center;margin-bottom:40px}
-.reviews-summary .big-star{font-size:1.8rem;color:#d4a13c;letter-spacing:4px;margin-bottom:4px}
-.reviews-summary .big-rating{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#0f0e19}
-.reviews-summary .big-count{font-size:.75rem;color:#8a8a9a;margin-top:2px}
-.reviews-platforms{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:36px}
-.platform{font-size:.65rem;color:#5a5a72;padding:6px 14px;background:#f8f4ee;border-radius:4px;display:flex;align-items:center;gap:4px}
-.platform strong{color:#0f0e19}
 .review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.review-card{background:#f8f4ee;padding:24px;border:1px solid rgba(200,164,86,.06);border-radius:6px;transition:all .3s}
+.review-card{background:#f8f4ee;padding:24px;border:1px solid rgba(212,161,60,.06);border-radius:6px;transition:all .3s}
 .review-card:hover{border-color:#d4a13c}
 .review-card .r-stars{color:#d4a13c;font-size:.65rem;letter-spacing:2px;margin-bottom:8px}
 .review-card blockquote{font-size:.78rem;color:#5a5a72;line-height:1.65;margin-bottom:10px;font-style:italic}
 .review-card .r-author{font-size:.72rem;color:#0f0e19;font-weight:500}
 .review-card .r-author span{display:block;font-size:.6rem;color:#8a8a9a;font-weight:400}
 
-/* ===== FAQ ===== */
 .faq{background:#f8f4ee;padding:96px 0}
 .faq-list{max-width:700px;margin:0 auto}
-.faq-item{border:1px solid rgba(200,164,86,.1);margin-bottom:8px;border-radius:6px;overflow:hidden;background:#fff}
+.faq-item{border:1px solid rgba(212,161,60,.1);margin-bottom:8px;border-radius:6px;overflow:hidden;background:#fff}
 .faq-q{width:100%;text-align:left;padding:16px 20px;background:#fff;border:none;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;color:#0f0e19;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
 .faq-q:hover{background:#faf6f0}
 .faq-q .faq-arrow{font-size:.6rem;color:#d4a13c;transition:transform .3s}
@@ -213,45 +188,35 @@ ul{list-style:none}
 .faq-item.active .faq-a{max-height:300px;padding:0 20px 16px}
 .faq-a p{font-size:.78rem;color:#5a5a72;line-height:1.65}
 
-/* ===== BOOKING ===== */
 .booking{background:#fff;padding:96px 0}
 .booking-wrapper{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
 .booking-info h2{font-family:'Playfair Display',serif;font-size:2.2rem;color:#0f0e19;margin-bottom:10px}
 .booking-info .b-sub{color:#5a5a72;font-size:.82rem;margin-bottom:28px;line-height:1.55}
 .booking-info .b-highlight{background:#f8f4ee;padding:16px 20px;border-left:3px solid #d4a13c;margin-bottom:20px;font-size:.75rem;color:#5a5a72;line-height:1.55}
 .booking-info .b-highlight strong{color:#0f0e19}
+.booking-tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:2px solid #eee}
+.booking-tab{padding:12px 24px;cursor:pointer;font-size:.78rem;font-weight:500;color:#8a8a9a;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .3s;font-family:'Inter',sans-serif}
+.booking-tab:hover{color:#d4a13c}
+.booking-tab.active{color:#d4a13c;border-bottom-color:#d4a13c}
+.booking-section{display:none}
+.booking-section.active{display:block}
+.booking-form{background:#faf8f5;border:1px solid rgba(212,161,60,.1);border-radius:8px;padding:36px}
+.booking-form .bf-head{font-family:'Playfair Display',serif;font-size:1.15rem;color:#0f0e19;margin-bottom:4px}
+.booking-form .bf-sub{font-size:.72rem;color:#8a8a9a;margin-bottom:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-row.three{grid-template-columns:1fr 1fr 1fr}
+.booking-form input,.booking-form select,.booking-form textarea{width:100%;padding:11px 14px;border:1px solid #ddd;font-family:'Inter',sans-serif;font-size:.78rem;color:#0f0e19;background:#fff;transition:all .2s;margin-bottom:10px;border-radius:4px}
+.booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{outline:none;border-color:#d4a13c;box-shadow:0 0 0 3px rgba(212,161,60,.1)}
+.booking-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%235a5a72'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:28px}
+.booking-form textarea{resize:vertical}
+
 .contact-lines{display:flex;flex-direction:column;gap:14px}
 .contact-line{display:flex;align-items:center;gap:12px}
-.contact-line .c-icon{width:36px;height:36px;background:#f8f4ee;border:1px solid rgba(200,164,86,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#d4a13c;font-size:.75rem}
+.contact-line .c-icon{width:36px;height:36px;background:#f8f4ee;border:1px solid rgba(212,161,60,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#d4a13c;font-size:.75rem}
 .contact-line .c-label{display:block;font-size:.55rem;color:#8a8a9a;letter-spacing:1px;text-transform:uppercase;margin-bottom:1px;font-weight:600}
 .contact-line a,.contact-line span{font-size:.78rem;color:#0f0e19}
 .contact-line a:hover{color:#d4a13c}
 
-.booking-form{background:#faf8f5;border:1px solid rgba(200,164,86,.1);border-radius:8px;padding:36px}
-.booking-form .bf-head{font-family:'Playfair Display',serif;font-size:1.15rem;color:#0f0e19;margin-bottom:4px}
-.booking-form .bf-sub{font-size:.72rem;color:#8a8a9a;margin-bottom:20px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.booking-form input,.booking-form select,.booking-form textarea{width:100%;padding:11px 14px;border:1px solid #ddd;font-family:'Inter',sans-serif;font-size:.78rem;color:#0f0e19;background:#fff;transition:all .2s;margin-bottom:10px;border-radius:4px}
-.booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{outline:none;border-color:#d4a13c;box-shadow:0 0 0 3px rgba(200,164,86,.1)}
-.booking-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%235a5a72'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:28px}
-.booking-form textarea{resize:vertical}
-.booking-form label{font-size:.7rem;font-weight:500;color:#4a4a5a;display:block;margin-bottom:2px;letter-spacing:.3px}
-.booking-form .extra-options{background:#fff;padding:14px;border:1px solid #eee;border-radius:4px;margin-bottom:10px}
-.extra-options .eo-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.extra-options .eo-row input[type="checkbox"]{width:auto;margin:0;accent-color:#d4a13c}
-.extra-options .eo-row label{font-size:.72rem;margin:0;display:inline}
-.extra-options .eo-row select{width:60px;margin:0;padding:4px 6px;font-size:.7rem}
-.extra-options .eo-hint{font-size:.62rem;color:#8a8a9a;margin-top:2px}
-.stops-section{margin-bottom:10px}
-.stop-entry{background:#fff;border:1px solid #eee;border-radius:4px;padding:10px 12px;margin-bottom:6px;position:relative}
-.stop-entry .stop-num{font-size:.6rem;color:#d4a13c;font-weight:600;display:block;margin-bottom:2px}
-.stop-entry input{width:100%;margin:0!important;background:#faf8f5}
-.stop-entry input:focus{background:#fff}
-.stop-entry .remove-stop{position:absolute;top:6px;right:6px;background:none;border:none;color:#dc2626;font-size:.7rem;cursor:pointer;padding:2px 4px}
-.add-stop-btn{background:none;border:1px dashed #ccc;color:#5a5a72;font-size:.72rem;padding:8px;width:100%;border-radius:4px;cursor:pointer;transition:all .2s;margin-bottom:10px}
-.add-stop-btn:hover{border-color:#d4a13c;color:#d4a13c}
-
-/* ===== FOOTER ===== */
 .footer{background:#0f0e19;color:rgba(255,255,255,.5);padding:60px 0 0}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
 .footer-brand .f-logo{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;color:#fff;letter-spacing:1px;display:block;margin-bottom:10px}
@@ -259,7 +224,7 @@ ul{list-style:none}
 .footer-brand p{font-size:.68rem;line-height:1.6;margin-bottom:14px;color:rgba(255,255,255,.4)}
 .footer-soc{display:flex;gap:6px}
 .footer-soc a{width:30px;height:30px;border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:700;color:rgba(255,255,255,.3);transition:all .3s;text-decoration:none;border-radius:4px}
-.footer-soc a:hover{border-color:#d4a13c;color:#d4a13c;background:rgba(200,164,86,.05)}
+.footer-soc a:hover{border-color:#d4a13c;color:#d4a13c;background:rgba(212,161,60,.05)}
 .footer-links h4{font-size:.6rem;font-weight:600;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
 .footer-links li{font-size:.68rem;padding:2px 0}
 .footer-links a{color:rgba(255,255,255,.4);transition:color .3s}
@@ -273,13 +238,11 @@ ul{list-style:none}
 .call-bar a:hover{background:#d4a13c;color:#0f0e19}
 .call-bar .call-note{font-size:.6rem;color:rgba(255,255,255,.4)}
 
-/* ===== ANIMATIONS ===== */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.25,.46,.45,.94),transform .6s cubic-bezier(.25,.46,.45,.94)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero-content{animation:fadeUp .7s ease}
 
-/* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
   .booking-wrapper{grid-template-columns:1fr;gap:36px}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -313,7 +276,9 @@ ul{list-style:none}
   .btn{padding:12px 24px;font-size:.75rem}
   .btn-lg{padding:14px 28px;font-size:.8rem}
   .form-row{grid-template-columns:1fr}
+  .form-row.three{grid-template-columns:1fr}
   .booking-form{padding:20px}
+  .booking-tab{padding:10px 14px;font-size:.7rem}
   .footer-grid{grid-template-columns:1fr}
   .trust-grid{gap:12px}
   .reviews-platforms{gap:8px}
@@ -336,7 +301,6 @@ ul{list-style:none}
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
 <nav class="navbar" id="navbar">
   <div class="container nav-container">
     <a href="#" class="logo">YM<span>LIMOUSINE</span></a>
@@ -353,7 +317,6 @@ ul{list-style:none}
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
   <img src="img/hero-chicago.jpg" alt="Chicago skyline" class="hero-bg" />
   <div class="hero-bg-overlay"></div>
@@ -361,7 +324,7 @@ ul{list-style:none}
     <div class="hero-badge">✦ Company-Owned Fleet · Licensed &amp; Insured · Child Seats Available</div>
     <div class="hero-text-box">
       <h1>Flat Rates to O'Hare.<br>No Surge. <em>Ever.</em></h1>
-      <p class="hero-sub">Chicago's premium chauffeured transportation. Company-owned fleet — not a broker. Luxury sedans, Escalade SUVs, stretch limos &amp; party buses. Professional chauffeurs. Child seats available. Book in under 2 minutes.</p>
+      <p class="hero-sub">Chicago's premium chauffeured transportation. Company-owned fleet — not a broker. Luxury sedans, SUVs, stretch limos &amp; party buses. Professional chauffeurs. Child seats available. Book in under 2 minutes.</p>
       <div class="hero-ctas">
         <a href="#booking" class="btn btn-gold btn-lg">Book Your Ride →</a>
         <a href="#pricing" class="btn btn-outline-light btn-lg">See Pricing</a>
@@ -376,7 +339,6 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ===== TRUST BAR ===== -->
 <section class="trust-bar">
   <div class="container trust-grid">
     <div class="trust-item"><span class="check">✓</span> Licensed &amp; Insured · City of Chicago</div>
@@ -388,7 +350,6 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ===== AS SEEN IN ===== -->
 <section class="as-seen">
   <div class="container">
     <div class="as-seen-label">Licensed &amp; Insured · Professional Chauffeurs</div>
@@ -401,7 +362,6 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
 <section class="services" id="services">
   <div class="container">
     <div class="section-heading reveal">
@@ -448,21 +408,20 @@ ul{list-style:none}
       </div>
       <div class="service-card reveal">
         <span class="s-icon">🎉</span>
-        <h3>Night Out &amp; Parties</h3>
-        <p>Bachelor parties, concerts, sporting events. BYOB friendly. Premium sound, LED lighting, professional driver all night.</p>
+        <h3>Group Charters</h3>
+        <p>Full-service charter bookings for corporate events, sports teams, school trips, conventions, and large groups.</p>
         <ul>
-          <li>Party buses up to 30 guests</li>
-          <li>Stretch limos for VIP arrivals</li>
-          <li>Premium sound &amp; LED lighting</li>
-          <li>BYOB friendly — we provide ice &amp; cups</li>
-          <li>Custom route planning</li>
+          <li>Motorcoaches up to 56 passengers</li>
+          <li>Dedicated charter coordinator</li>
+          <li>Multi-day &amp; multi-stop itineraries</li>
+          <li>Custom scheduling &amp; route planning</li>
+          <li>Wi-Fi, restroom, PA system onboard</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PRICING TIERS ===== -->
 <section class="pricing" id="pricing">
   <div class="container">
     <div class="section-heading reveal">
@@ -477,7 +436,7 @@ ul{list-style:none}
         <div class="p-price">$89<span>/hr</span></div>
         <p class="p-from">Airport from $79 flat</p>
         <ul class="p-features">
-          <li>Lincoln Continental / Cadillac CT6</li>
+          <li>Luxury Sedan</li>
           <li>1-3 passengers</li>
           <li>Real-time flight tracking</li>
           <li>Meet &amp; greet with name sign</li>
@@ -494,7 +453,7 @@ ul{list-style:none}
         <div class="p-price">$129<span>/hr</span></div>
         <p class="p-from">Airport from $109 flat</p>
         <ul class="p-features">
-          <li>Cadillac Escalade ESV</li>
+          <li>Luxury SUV</li>
           <li>1-6 passengers</li>
           <li>Everything in Executive +</li>
           <li>Premium leather seating · Entertainment</li>
@@ -524,13 +483,12 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ===== FLEET ===== -->
 <section class="fleet" id="fleet">
   <div class="container">
     <div class="section-heading reveal">
       <span class="section-tag">Our Fleet</span>
       <h2>Chicago's Premium Fleet</h2>
-      <p>Company-owned, professionally maintained, and driven by background-checked chauffeurs. 2024-2026 model vehicles.</p>
+      <p>Company-owned, professionally maintained, and driven by background-checked chauffeurs.</p>
     </div>
     <div class="fleet-grid">
       <div class="fleet-card reveal">
@@ -584,6 +542,18 @@ ul{list-style:none}
       </div>
       <div class="fleet-card reveal">
         <div class="fleet-card-image">
+          <img src="img/lincoln-continental.avif" alt="Charter Bus" loading="lazy" />
+          <span class="fleet-emoji">🚌</span>
+          <div class="fleet-overlay"><span class="fleet-capacity">Up to 56 passengers</span><span class="fleet-name">Charter Bus</span></div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-sub">Group Transport · Conventions &amp; Events</div>
+          <p>Full-size motorcoaches for groups, corporate events, sports teams, and conventions. Seats up to 56 passengers.</p>
+          <div class="fleet-tags"><span>Restroom</span><span>Wi-Fi</span><span>PA System</span><span>Under-bus Storage</span></div>
+        </div>
+      </div>
+      <div class="fleet-card reveal">
+        <div class="fleet-card-image">
           <img src="img/sprinter.jpg" alt="Sprinter Van" loading="lazy" />
           <span class="fleet-emoji">🚐</span>
           <div class="fleet-overlay"><span class="fleet-capacity">Up to 12 passengers</span><span class="fleet-name">Sprinter Van</span></div>
@@ -598,7 +568,6 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ===== WHY YM ===== -->
 <section class="why" id="why">
   <div class="container">
     <div class="section-heading reveal">
@@ -641,7 +610,6 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ===== REVIEWS ===== -->
 <section class="reviews" id="reviews">
   <div class="container">
     <div class="section-heading reveal">
@@ -672,7 +640,6 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
 <section class="faq" id="faq">
   <div class="container">
     <div class="section-heading reveal">
@@ -683,7 +650,7 @@ ul{list-style:none}
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q">How much does it cost to get to O'Hare from downtown? <span class="faq-arrow">▼</span></button>
-        <div class="faq-a"><p>Airport transfers start at $79 flat rate for a luxury sedan to O'Hare and $69 to Midway. Premium SUV (Escalade) starts at $109. These are flat rates — no surge pricing, no hidden fees. The price you book is the price you pay, regardless of traffic or time of day.</p></div>
+        <div class="faq-a"><p>Airport transfers start at $79 flat rate for a luxury sedan to O'Hare and $69 to Midway. Premium SUV starts at $109. These are flat rates — no surge pricing, no hidden fees. The price you book is the price you pay, regardless of traffic or time of day.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Do you provide child car seats? <span class="faq-arrow">▼</span></button>
@@ -713,7 +680,6 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ===== BOOKING ===== -->
 <section class="booking" id="booking">
   <div class="container">
     <div class="section-heading reveal">
@@ -752,73 +718,142 @@ ul{list-style:none}
         </div>
       </div>
 
-      <form class="booking-form reveal" id="bookingForm">
+      <div class="booking-form reveal">
         <div class="bf-head">Get Your Quote</div>
-        <div class="bf-sub">We'll text or email back within minutes</div>
+        <div class="bf-sub">Choose your booking type below</div>
 
-        <!-- Contact -->
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Full Name" required />
-          <input type="tel" name="phone" placeholder="Phone Number" required />
-        </div>
-        <div class="form-row">
-          <input type="email" name="email" placeholder="Email (optional)" />
-          <input type="number" name="passengers" placeholder="# of Passengers" min="1" />
+        <div class="booking-tabs">
+          <button class="booking-tab active" data-tab="standard">Standard Booking</button>
+          <button class="booking-tab" data-tab="airport">Airport Transfer</button>
+          <button class="booking-tab" data-tab="charter">Group Charter</button>
         </div>
 
-        <!-- Primary pickup / dropoff -->
-        <input type="text" name="pickup" id="pickupInput" placeholder="Pickup Location (address, airport, hotel)" required />
-        <div id="stopsContainer">
-          <div class="stops-section" id="stopList">
-            <div class="stop-entry" data-stop="1">
-              <span class="stop-num">Destination 1</span>
-              <input type="text" name="dropoff_1" placeholder="Destination address" required />
-            </div>
+        <!-- STANDARD BOOKING -->
+        <form class="booking-section active" id="standardForm">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="tel" name="phone" placeholder="Phone Number" required />
           </div>
-          <button type="button" class="add-stop-btn" id="addStopBtn">+ Add Another Stop</button>
-        </div>
+          <div class="form-row">
+            <input type="email" name="email" placeholder="Email" />
+            <input type="number" name="passengers" placeholder="Number of Passengers" min="1" />
+          </div>
+          <div class="form-row">
+            <input type="text" name="pickup" placeholder="Pickup Location" required />
+            <input type="text" name="dropoff" placeholder="Destination" required />
+          </div>
+          <div class="form-row">
+            <input type="date" name="date" required />
+            <input type="time" name="time" required />
+          </div>
+          <select name="vehicle">
+            <option value="">Select Vehicle Type</option>
+            <option value="Luxury SUV (1-6)" selected>★ Luxury SUV (1-6) — Most Popular</option>
+            <option value="Luxury Sedan (1-3)">Luxury Sedan (1-3)</option>
+            <option value="Stretch Limousine (1-10)">Stretch Limousine (1-10)</option>
+            <option value="Party Bus (1-30)">Party Bus (1-30)</option>
+            <option value="Charter Bus (1-56)">Charter Bus (1-56)</option>
+            <option value="Sprinter Van (1-12)">Sprinter Van (1-12)</option>
+          </select>
+          <textarea name="notes" rows="3" placeholder="Special requests, flight number, or additional information"></textarea>
+          <button type="submit" class="btn btn-dark btn-block standard-btn">Request a Quote</button>
+        </form>
 
-        <!-- Date / Time -->
-        <div class="form-row">
-          <input type="date" name="date" required />
-          <input type="time" name="time" required />
-        </div>
-
-        <!-- Vehicle -->
-        <select name="vehicle">
-          <option value="">Select vehicle type</option>
-          <option value="sedan">Luxury Sedan (1-3 passengers)</option>
-          <option value="suv" selected>★ Luxury SUV — Escalade (1-6) ★ Most Popular</option>
-          <option value="limo">Stretch Limousine (1-10)</option>
-          <option value="partybus">Party Bus (1-30)</option>
-          <option value="sprinter">Sprinter Van (1-12)</option>
-        </select>
-
-        <!-- Extra Options: Child Seat + Multi-stop already handled above -->
-        <div class="extra-options">
-          <div class="eo-row">
-            <input type="checkbox" id="childSeat" name="childSeat" />
-            <label for="childSeat">I need child car seats / booster seats</label>
-            <select id="childSeatQty" name="childSeatQty" disabled style="opacity:.5">
-              <option value="1">1 seat</option>
-              <option value="2">2 seats</option>
-              <option value="3">3 seats</option>
+        <!-- AIRPORT TRANSFER -->
+        <form class="booking-section" id="airportForm">
+          <p style="font-size:.78rem;color:#5a5a72;margin-bottom:16px;">Flight tracking included — we monitor your flight and adjust for delays automatically.</p>
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="tel" name="phone" placeholder="Phone Number" required />
+          </div>
+          <div class="form-row">
+            <input type="email" name="email" placeholder="Email" />
+            <input type="number" name="passengers" placeholder="Passengers" min="1" />
+          </div>
+          <div class="form-row three">
+            <input type="text" name="flight_number" placeholder="Flight Number (e.g. AA1234)" required />
+            <input type="text" name="airline" placeholder="Airline (optional)" />
+            <select name="airport_direction">
+              <option value="">Pickup or Drop-off?</option>
+              <option value="pickup">Pickup from Airport</option>
+              <option value="dropoff">Drop-off at Airport</option>
             </select>
           </div>
-          <div class="eo-hint">Car seats provided free of charge. Please specify ages so we can select the right type.</div>
-        </div>
+          <div class="form-row">
+            <input type="text" name="pickup" placeholder="Pickup Location" required />
+            <input type="text" name="dropoff" placeholder="Destination" required />
+          </div>
+          <div class="form-row">
+            <input type="date" name="date" required />
+            <input type="time" name="time" required />
+          </div>
+          <select name="vehicle">
+            <option value="">Select Vehicle Type</option>
+            <option value="Luxury SUV (1-6)" selected>★ Luxury SUV (1-6) — Recommended for airport</option>
+            <option value="Luxury Sedan (1-3)">Luxury Sedan (1-3)</option>
+            <option value="Stretch Limousine (1-10)">Stretch Limousine (1-10)</option>
+            <option value="Party Bus (1-30)">Party Bus (1-30)</option>
+            <option value="Charter Bus (1-56)">Charter Bus (1-56)</option>
+            <option value="Sprinter Van (1-12)">Sprinter Van (1-12)</option>
+          </select>
+          <textarea name="notes" rows="3" placeholder="Additional information or special requests"></textarea>
+          <button type="submit" class="btn btn-dark btn-block airport-btn">Book Airport Transfer</button>
+        </form>
 
-        <!-- Flight info -->
-        <input type="text" name="flightInfo" placeholder="Flight number (for airport pickups)" />
-        <textarea name="notes" rows="2" placeholder="Special requests? (vehicle preference, luggage details, accessibility needs)"></textarea>
-
-        <button type="submit" class="btn btn-gold btn-block btn-lg">Get My Flat Rate →</button>
-      </form>
+        <!-- GROUP CHARTER -->
+        <form class="booking-section" id="charterForm">
+          <p style="font-size:.78rem;color:#5a5a72;margin-bottom:16px;">For groups, corporate events, sports teams, schools, weddings, and conventions. We'll handle the logistics.</p>
+          <div class="form-row">
+            <input type="text" name="contact_name" placeholder="Contact Name *" required />
+            <input type="tel" name="contact_phone" placeholder="Contact Phone *" required />
+          </div>
+          <div class="form-row">
+            <input type="email" name="contact_email" placeholder="Contact Email" />
+            <input type="text" name="organization" placeholder="Organization / Group Name" />
+          </div>
+          <select name="event_type">
+            <option value="">Type of Event / Trip</option>
+            <option value="Corporate Event">Corporate Event</option>
+            <option value="Convention / Conference">Convention / Conference</option>
+            <option value="Sports Team">Sports Team</option>
+            <option value="School / University">School / University</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Church / Religious">Church / Religious Group</option>
+            <option value="Family Reunion">Family Reunion</option>
+            <option value="Concert / Festival">Concert / Festival</option>
+            <option value="Tour / Sightseeing">Tour / Sightseeing</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="form-row">
+            <input type="number" name="total_passengers" placeholder="Total Number of Passengers *" min="1" required />
+            <select name="vehicle_pref">
+              <option value="">Preferred Vehicle</option>
+              <option value="Charter Bus (up to 56)">Charter Bus / Motorcoach (56 pax)</option>
+              <option value="Party Bus (up to 30)">Party Bus (30 pax)</option>
+              <option value="Stretch Limo (up to 10)">Stretch Limousine (10 pax)</option>
+              <option value="Sprinter Van (up to 12)">Sprinter Van (12 pax)</option>
+              <option value="Multiple SUVs">Multiple Luxury SUVs</option>
+              <option value="Mix of vehicles">Mix of vehicles</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <input type="text" name="pickup" placeholder="Pickup Location" required />
+            <input type="text" name="dropoff" placeholder="Destination" required />
+          </div>
+          <div class="form-row three">
+            <input type="date" name="start_date" placeholder="Start Date" required />
+            <input type="date" name="end_date" placeholder="End Date (for multi-day)" />
+            <input type="time" name="daily_time" placeholder="Daily Start Time" />
+          </div>
+          <textarea name="itinerary" rows="3" placeholder="Describe your itinerary, schedule, or special requirements (daily schedule, stops, pickup locations)"></textarea>
+          <textarea name="special_reqs" rows="2" placeholder="Special requirements (wheelchair access, restroom needed, catering, etc.)"></textarea>
+          <button type="submit" class="btn btn-dark btn-block charter-btn">Submit Charter Request</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -836,9 +871,9 @@ ul{list-style:none}
         <ul>
           <li><a href="#services">Airport Transfers</a></li>
           <li><a href="#services">Corporate Travel</a></li>
-          <li><a href="#services">Weddings</a></li>
+          <li><a href="#services">Weddings &amp; Events</a></li>
           <li><a href="#services">Party Buses</a></li>
-          <li><a href="#services">Medical Transport</a></li>
+          <li><a href="#services">Group Charters</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -848,6 +883,7 @@ ul{list-style:none}
           <li><a href="#fleet">Luxury SUV</a></li>
           <li><a href="#fleet">Stretch Limo</a></li>
           <li><a href="#fleet">Party Bus</a></li>
+          <li><a href="#fleet">Charter Bus</a></li>
           <li><a href="#fleet">Sprinter Van</a></li>
         </ul>
       </div>
@@ -868,18 +904,21 @@ ul{list-style:none}
   </div>
 </footer>
 
-<!-- ===== SCRIPTS ===== -->
+<div class="call-bar">
+  <a href="tel:+17738099782">📞 Call (773) 809-9782</a>
+  <span class="call-note">24/7 Dispatch</span>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function() {
   'use strict';
 
-  // Init EmailJS
   emailjs.init('gx__d4TQ_DDkpcHoo');
   var SERVICE_ID = 'service_nzo2i9t';
   var TEMPLATE_ID = 'template_r13juyq';
 
-  // --- Mobile Nav ---
+  // Mobile Nav
   var navToggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', function() {
@@ -893,165 +932,91 @@ ul{list-style:none}
     });
   });
 
-  // --- Navbar scroll ---
+  // Navbar scroll
   var navbar = document.getElementById('navbar');
   window.addEventListener('scroll', function() {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  // --- Scroll reveal ---
+  // Scroll reveal
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
-  // --- FAQ Accordion ---
+  // FAQ Accordion
   document.querySelectorAll('.faq-q').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var item = this.parentElement;
       var wasActive = item.classList.contains('active');
-      // Close all
       document.querySelectorAll('.faq-item').forEach(function(f) { f.classList.remove('active'); });
-      // Toggle this one
       if (!wasActive) item.classList.add('active');
     });
   });
 
-  // --- Child Seat Toggle ---
-  var childCheck = document.getElementById('childSeat');
-  var childQty = document.getElementById('childSeatQty');
-  childCheck.addEventListener('change', function() {
-    childQty.disabled = !this.checked;
-    childQty.style.opacity = this.checked ? '1' : '.5';
+  // Booking Tabs
+  document.querySelectorAll('.booking-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.booking-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.booking-section').forEach(function(s) { s.classList.remove('active'); });
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab + 'Form').classList.add('active');
+    });
   });
 
-  // --- Multiple Stops ---
-  var stopCount = 1;
-  var addStopBtn = document.getElementById('addStopBtn');
-  var stopList = document.getElementById('stopList');
-  addStopBtn.addEventListener('click', function() {
-    stopCount++;
-    var div = document.createElement('div');
-    div.className = 'stop-entry';
-    div.dataset.stop = stopCount;
-    div.innerHTML =
-      '<span class="stop-num">Stop ' + stopCount + '</span>' +
-      '<button type="button" class="remove-stop" aria-label="Remove stop">✕</button>' +
-      '<input type="text" name="stop_' + stopCount + '" placeholder="Additional stop address" />';
-    stopList.appendChild(div);
-    div.querySelector('.remove-stop').addEventListener('click', function() {
-      div.remove();
-      renumberStops();
+  // Form submit helper
+  function submitForm(formId, type) {
+    var form = document.getElementById(formId);
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = this.querySelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      var params = { type: type };
+      var f = this.elements;
+      for (var i = 0; i < f.length; i++) {
+        if (f[i].name) params[f[i].name] = f[i].value || 'Not provided';
+      }
+
+      emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
+        .then(function() {
+          btn.textContent = '✓ Sent! We\'ll call shortly.';
+          btn.style.background = '#22c55e';
+          btn.style.borderColor = '#22c55e';
+          btn.style.color = '#fff';
+          setTimeout(function() {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.style.borderColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+            form.reset();
+          }, 5000);
+        })
+        .catch(function() {
+          btn.textContent = 'Error. Call (773) 809-9782';
+          btn.style.background = '#dc2626';
+          btn.style.borderColor = '#dc2626';
+          btn.style.color = '#fff';
+          setTimeout(function() {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.style.borderColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+          }, 5000);
+        });
     });
-  });
-  function renumberStops() {
-    var entries = stopList.querySelectorAll('.stop-entry');
-    entries.forEach(function(el, i) {
-      el.querySelector('.stop-num').textContent = 'Stop ' + (i + 1);
-      el.dataset.stop = i + 1;
-      var inp = el.querySelector('input');
-      inp.name = 'stop_' + (i + 1);
-      inp.required = false; // only first is required
-    });
-    stopCount = entries.length;
-    // First stop is required
-    if (entries.length > 0) {
-      entries[0].querySelector('.stop-num').textContent = 'Destination 1';
-      entries[0].querySelector('input').required = true;
-    }
   }
 
-  // --- Auto-detect airport (simple keyword check on pickup/dropoff) ---
-  function isAirport(val) {
-    var v = (val || '').toLowerCase();
-    return v.indexOf('ohare') > -1 || v.indexOf('o\'hare') > -1 || v.indexOf('ord') > -1 ||
-           v.indexOf('midway') > -1 || v.indexOf('mdw') > -1;
-  }
-
-  // --- Form Submit ---
-  var bookingForm = document.getElementById('bookingForm');
-  bookingForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var btn = this.querySelector('button[type="submit"]');
-    var originalText = btn.innerHTML;
-    btn.innerHTML = 'Sending...';
-    btn.disabled = true;
-
-    // Collect stops
-    var stops = [];
-    stopList.querySelectorAll('.stop-entry input').forEach(function(inp) {
-      if (inp.value.trim()) stops.push(inp.value.trim());
-    });
-
-    var childSeatStr = '';
-    if (childCheck.checked) {
-      childSeatStr = 'Yes — ' + childQty.value + ' seat(s)';
-    } else {
-      childSeatStr = 'No';
-    }
-
-    var params = {
-      type: 'Booking',
-      name: this.querySelector('[name="name"]').value,
-      phone: this.querySelector('[name="phone"]').value,
-      email: this.querySelector('[name="email"]').value || 'Not provided',
-      passengers: this.querySelector('[name="passengers"]').value || 'Not specified',
-      pickup: this.querySelector('[name="pickup"]').value,
-      dropoff: stops.join(' → '),
-      date: this.querySelector('[name="date"]').value,
-      time: this.querySelector('[name="time"]').value,
-      vehicle: this.querySelector('[name="vehicle"]').value || 'Not specified',
-      childSeat: childSeatStr,
-      flightInfo: this.querySelector('[name="flightInfo"]').value || 'N/A',
-      notes: this.querySelector('[name="notes"]').value || 'No special requests',
-      distance: ''
-    };
-
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
-      .then(function() {
-        btn.innerHTML = '✓ Sent! We\'ll call shortly.';
-        btn.style.background = '#22c55e';
-        btn.style.borderColor = '#22c55e';
-        setTimeout(function() {
-          btn.innerHTML = originalText;
-          btn.style.background = '';
-          btn.style.borderColor = '';
-          btn.disabled = false;
-          bookingForm.reset();
-          // Reset child seat
-          childQty.disabled = true;
-          childQty.style.opacity = '.5';
-          // Reset stops to just one
-          stopList.innerHTML =
-            '<div class="stop-entry" data-stop="1">' +
-            '<span class="stop-num">Destination 1</span>' +
-            '<input type="text" name="dropoff_1" placeholder="Destination address" required />' +
-            '</div>📞         stopCount = 1;
-        }, 5000);
-      })
-      .catch(function() {
-        btn.innerHTML = 'Error. Call (773) 809-9782';
-        btn.style.background = '#dc2626';
-        btn.style.borderColor = '#dc2626';
-        setTimeout(function() {
-          btn.innerHTML = originalText;
-          btn.style.background = '';
-          btn.style.borderColor = '';
-          btn.disabled = false;
-        }, 5000);
-      });
-  });
-
+  submitForm('standardForm', 'Standard Booking');
+  submitForm('airportForm', 'Airport Transfer');
+  submitForm('charterForm', 'Group Charter');
 })();
 </script>
-<div class="call-bar">
-  <a href="tel:+17738099782">📞 Call (773) 809-9782</a>
-  <span class="call-note">24/7 Dispatch</span>
-</div>
-
 </body>
 </html>
