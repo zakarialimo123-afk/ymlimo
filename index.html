@@ -326,11 +326,14 @@ ul{list-style:none}
 
 
 
-.logo{display:flex;align-items:center;justify-content:center}
+.logo{display:flex;align-items:center;gap:10px}
 
 
 
-.logo img{height:42px;width:auto;display:block}
+.logo .logo-icon{width:36px;height:36px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:2px solid #c8973e}
+.logo .logo-icon img{width:100%;height:100%;object-fit:cover;display:block}
+.logo .logo-text{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#0f0e19}
+.logo .logo-text .gold{color:#c8973e}
 
 
 
@@ -1402,7 +1405,7 @@ ul{list-style:none}
 
 
 
-    <a href="#" class="logo"><img src="img/chauffeur.jpg" alt="YM Chauffeur" /></a>
+    <a href="#" class="logo"><span class="logo-icon"><img src="img/chauffeur.jpg" alt="" /></span><span class="logo-text">YM <span class="gold">Limousine</span></span></a>
 
 
 
