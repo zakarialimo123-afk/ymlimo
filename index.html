@@ -199,9 +199,7 @@ ul{list-style:none}
 .booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{outline:none;border-color:#d4a13c;box-shadow:0 0 0 3px rgba(212,161,60,.1)}
 .booking-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%235a5a72'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:28px}
 .booking-form textarea{resize:vertical}
-.booking-form input[type='date'],.booking-form input[type='time']{min-height:48px;font-size:16px!important;padding:11px 14px;width:100%;margin-bottom:10px;cursor:pointer;background:#fff;border:1px solid #ddd;border-radius:4px;color:#0f0e19;font-family:'Inter',sans-serif}
-.booking-form input[type='date']{min-width:140px}
-.booking-form input[type='time']{min-width:120px}
+
 
 .contact-lines{display:flex;flex-direction:column;gap:14px}
 .contact-line{display:flex;align-items:center;gap:12px}
@@ -952,32 +950,6 @@ ul{list-style:none}
           }
         });
       }, 500);
-    });
-  });
-
-  // Date/Time picker fix for mobile
-  function fixDatePickers() {
-    var dt = document.querySelectorAll('.booking-form input[type="date"], .booking-form input[type="time"]');
-    dt.forEach(function(inp) {
-      // Force native picker on any tap
-      inp.addEventListener('click', function(e) {
-        if (typeof this.showPicker === 'function') {
-          this.showPicker();
-        }
-        this.focus();
-      });
-      inp.addEventListener('touchstart', function(e) {
-        if (typeof this.showPicker === 'function') {
-          this.showPicker();
-        }
-      }, {passive:true});
-    });
-  }
-  fixDatePickers();
-  // Also re-fix when booking tabs switch (new forms become visible)
-  document.querySelectorAll('.booking-tab').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      setTimeout(fixDatePickers, 100);
     });
   });
 
