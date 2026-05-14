@@ -1118,8 +1118,9 @@ ul{list-style:none}
     if (!val && field.hasAttribute('required')) return 'This field is required';
     if (!val) return '';
     if (type === 'tel' || name.indexOf('phone') >= 0) {
-      var digits = val.replace(/[\s\-\(\)\+\.]/g,'');
-      if (digits.length < 10) return 'Please enter a valid phone number (10+ digits)';
+      var digits = val.replace(/[\s\-\(\)\+\.\#\*]/g,'');
+      if (digits.replace(/[0-9]/g,'').length > 0) return 'Please enter a valid phone number';
+      if (digits.length < 10) return 'Phone number too short — include your area code';
       if (digits.length > 15) return 'Phone number too long';
     }
     if (type === 'email' || name.indexOf('email') >= 0) {
