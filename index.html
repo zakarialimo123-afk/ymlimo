@@ -209,6 +209,7 @@ ul{list-style:none}
 .booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{outline:none;border-color:#d4a13c;box-shadow:0 0 0 3px rgba(212,161,60,.1)}
 .booking-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%235a5a72'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:28px}
 .booking-form textarea{resize:vertical}
+input[type='date'],input[type='time']{appearance:auto;-webkit-appearance:auto;min-height:44px}
 
 .contact-lines{display:flex;flex-direction:column;gap:14px}
 .contact-line{display:flex;align-items:center;gap:12px}
@@ -324,7 +325,7 @@ ul{list-style:none}
     <div class="hero-badge">✦ Company-Owned Fleet · Licensed &amp; Insured · Child Seats Available</div>
     <div class="hero-text-box">
       <h1>Flat Rates to O'Hare.<br>No Surge. <em>Ever.</em></h1>
-      <p class="hero-sub">Chicago's premium chauffeured transportation. Company-owned fleet — not a broker. Luxury sedans, SUVs, stretch limos &amp; party buses. Professional chauffeurs. Child seats available. Book in under 2 minutes.</p>
+      <p class="hero-sub">Chicago's premium chauffeured transportation. Luxury sedans, SUVs, stretch limos &amp; party buses. Professional chauffeurs. Child seats available. Book in under 2 minutes.</p>
       <div class="hero-ctas">
         <a href="#booking" class="btn btn-gold btn-lg">Book Your Ride →</a>
         <a href="#pricing" class="btn btn-outline-light btn-lg">See Pricing</a>
@@ -540,18 +541,7 @@ ul{list-style:none}
           <div class="fleet-tags"><span>Dance Floor</span><span>Pro Audio System</span><span>LED Lighting</span><span>Bar &amp; Cooler</span></div>
         </div>
       </div>
-      <div class="fleet-card reveal">
-        <div class="fleet-card-image">
-          <img src="img/lincoln-continental.avif" alt="Charter Bus" loading="lazy" />
-          <span class="fleet-emoji">🚌</span>
-          <div class="fleet-overlay"><span class="fleet-capacity">Up to 56 passengers</span><span class="fleet-name">Charter Bus</span></div>
-        </div>
-        <div class="fleet-card-body">
-          <div class="fleet-sub">Group Transport · Conventions &amp; Events</div>
-          <p>Full-size motorcoaches for groups, corporate events, sports teams, and conventions. Seats up to 56 passengers.</p>
-          <div class="fleet-tags"><span>Restroom</span><span>Wi-Fi</span><span>PA System</span><span>Under-bus Storage</span></div>
-        </div>
-      </div>
+
       <div class="fleet-card reveal">
         <div class="fleet-card-image">
           <img src="img/sprinter.jpg" alt="Sprinter Van" loading="lazy" />
@@ -588,8 +578,8 @@ ul{list-style:none}
       </div>
       <div class="why-card reveal">
         <span class="why-icon">🛡️</span>
-        <h4>Licensed &amp; Insured</h4>
-        <p>Licensed by the City of Chicago. Commercially insured. Background-checked, drug-tested chauffeurs.</p>
+        <h4>Licensed &amp; Professional</h4>
+        <p>Licensed by the City of Chicago. Background-checked, drug-tested chauffeurs.</p>
       </div>
       <div class="why-card reveal">
         <span class="why-icon">✈️</span>
@@ -661,8 +651,8 @@ ul{list-style:none}
         <div class="faq-a"><p>Absolutely. Add as many stops as you need when booking — we'll build your route and give you an accurate flat rate upfront. Great for airport runs with multiple family members, bar crawls, wedding day logistics, or errands around the city.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Is YM Limousine a broker or do you own your vehicles? <span class="faq-arrow">▼</span></button>
-        <div class="faq-a"><p>We own our fleet. Every vehicle is company-owned, professionally maintained, and driven by our directly employed chauffeurs. We're not a dispatch service that subcontracts to random drivers. When you book YM, you get YM — our cars, our drivers, our standards.</p></div>
+        <button class="faq-q">What areas do you serve? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a"><p>We serve the entire Chicagoland area — downtown Chicago, O'Hare &amp; Midway airports, and all surrounding suburbs from the North Shore to the Western suburbs.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">How does flight tracking work for airport pickups? <span class="faq-arrow">▼</span></button>
@@ -752,7 +742,6 @@ ul{list-style:none}
             <option value="Luxury Sedan (1-3)">Luxury Sedan (1-3)</option>
             <option value="Stretch Limousine (1-10)">Stretch Limousine (1-10)</option>
             <option value="Party Bus (1-30)">Party Bus (1-30)</option>
-            <option value="Charter Bus (1-56)">Charter Bus (1-56)</option>
             <option value="Sprinter Van (1-12)">Sprinter Van (1-12)</option>
           </select>
           <textarea name="notes" rows="3" placeholder="Special requests, flight number, or additional information"></textarea>
@@ -793,7 +782,6 @@ ul{list-style:none}
             <option value="Luxury Sedan (1-3)">Luxury Sedan (1-3)</option>
             <option value="Stretch Limousine (1-10)">Stretch Limousine (1-10)</option>
             <option value="Party Bus (1-30)">Party Bus (1-30)</option>
-            <option value="Charter Bus (1-56)">Charter Bus (1-56)</option>
             <option value="Sprinter Van (1-12)">Sprinter Van (1-12)</option>
           </select>
           <textarea name="notes" rows="3" placeholder="Additional information or special requests"></textarea>
@@ -828,7 +816,6 @@ ul{list-style:none}
             <input type="number" name="total_passengers" placeholder="Total Number of Passengers *" min="1" required />
             <select name="vehicle_pref">
               <option value="">Preferred Vehicle</option>
-              <option value="Charter Bus (up to 56)">Charter Bus / Motorcoach (56 pax)</option>
               <option value="Party Bus (up to 30)">Party Bus (30 pax)</option>
               <option value="Stretch Limo (up to 10)">Stretch Limousine (10 pax)</option>
               <option value="Sprinter Van (up to 12)">Sprinter Van (12 pax)</option>
@@ -863,7 +850,6 @@ ul{list-style:none}
         <div class="footer-soc">
           <a href="https://instagram.com/ymlimousine" target="_blank" aria-label="Instagram">IG</a>
           <a href="#" target="_blank" aria-label="Facebook">FB</a>
-          <a href="#" target="_blank" aria-label="YouTube">YT</a>
         </div>
       </div>
       <div class="footer-links">
@@ -873,7 +859,7 @@ ul{list-style:none}
           <li><a href="#services">Corporate Travel</a></li>
           <li><a href="#services">Weddings &amp; Events</a></li>
           <li><a href="#services">Party Buses</a></li>
-          <li><a href="#services">Group Charters</a></li>
+          <li><a href="#services">Group Transport</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -883,7 +869,6 @@ ul{list-style:none}
           <li><a href="#fleet">Luxury SUV</a></li>
           <li><a href="#fleet">Stretch Limo</a></li>
           <li><a href="#fleet">Party Bus</a></li>
-          <li><a href="#fleet">Charter Bus</a></li>
           <li><a href="#fleet">Sprinter Van</a></li>
         </ul>
       </div>
@@ -899,7 +884,6 @@ ul{list-style:none}
     </div>
     <div class="footer-bottom">
       <p>© 2026 YM Limousine Inc. All rights reserved.</p>
-      <p class="f-legal">Licensed by the City of Chicago. Commercially insured.</p>
     </div>
   </div>
 </footer>
