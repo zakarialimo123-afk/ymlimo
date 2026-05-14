@@ -10,7 +10,7 @@
 <meta property="og:description" content="It's more than a ride. Chicago's premium chauffeured transportation. Luxury sedans, SUVs, limos & party buses. No surge. Professional chauffeurs. 24/7." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ymlimo.com" />
-<meta property="og:image" content="https://ymlimo.com/img/chauffeur.jpg" />
+<meta property="og:image" content="https://ymlimo.com/img/logo.jpg" />
 <meta name="robots" content="index, follow" />
 <meta name="geo.region" content="US-IL" />
 <meta name="geo.placename" content="Chicago" />
@@ -22,7 +22,7 @@
   "telephone":"+17738099782",
   "email":"info@ymlimo.com",
   "description":"Flat rates, professional chauffeurs. It's more than a ride.",
-  "image":"https://ymlimo.com/img/chauffeur.jpg",
+  "image":"https://ymlimo.com/img/logo.jpg",
   "address":{
     "@type":"PostalAddress",
     "addressLocality":"Chicago",
@@ -39,8 +39,8 @@
     {"@type":"Airport","name":"Midway","iata":"MDW"}
   ]
 }</script>
-<link rel="icon" type="image/jpeg" href="img/chauffeur.jpg" />
-<link rel="apple-touch-icon" href="img/chauffeur.jpg" />
+<link rel="icon" type="image/jpeg" href="img/logo.jpg" />
+<link rel="apple-touch-icon" href="img/logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -349,8 +349,8 @@ ul{list-style:none}
 
 <nav class="navbar" id="navbar">
   <div class="container nav-container">
-    <a href="#" class="logo"><img src="img/chauffeur.jpg" alt="YM Chauffeur" /></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">â˜°</button>
+    <a href="#" class="logo"><img src="img/logo.jpg" alt="YM Limousine" /></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
 
@@ -1014,7 +1014,7 @@ ul{list-style:none}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="f-logo"><img src="img/chauffeur.jpg" alt="YM Chauffeur" /></span>
+        <span class="f-logo"><img src="img/logo.jpg" alt="YM Limousine" /></span>
         <p>It's more than a ride. Chicago's trusted chauffeured transportation â€” family-run, professional, always on time.</p>
         <div class="footer-soc">
           <a href="https://instagram.com/ymlimousine" target="_blank" aria-label="Instagram">IG</a>
@@ -1067,15 +1067,15 @@ ul{list-style:none}
 </footer>
 
 <div class="chatbot" id="chatbot">
-  <button class="chatbot-btn" id="chatbotBtn" aria-label="Open chat"><img src="img/logo.jpg" alt="" /></button>
+  <button class="chatbot-btn" id="chatbotBtn" aria-label="Open chat"><img src="img/chauffeur.jpg" alt="" /></button>
   <div class="chatbot-popup" id="chatbotPopup">
     <div class="chatbot-header">
-      <span class="chatbot-avatar"><img src="img/logo.jpg" alt="" /></span>
+      <span class="chatbot-avatar"><img src="img/chauffeur.jpg" alt="" /></span>
       <div class="chatbot-info">
         <span class="chatbot-name">Your Chauffeur</span>
         <span class="chatbot-status">Online</span>
       </div>
-      <button class="chatbot-close" id="chatbotClose">âœ•</button>
+      <button class="chatbot-close" id="chatbotClose">✕</button>
     </div>
     <div class="chatbot-body" id="chatbotBody">
       <div class="msg bot">
@@ -1116,12 +1116,12 @@ ul{list-style:none}
   var navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', function() {
     navLinks.classList.toggle('open');
-    navToggle.innerHTML = navLinks.classList.contains('open') ? 'âœ•' : 'â˜°';
+    navToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰';
   });
   navLinks.querySelectorAll('a').forEach(function(l) {
     l.addEventListener('click', function() {
       navLinks.classList.remove('open');
-      navToggle.innerHTML = 'â˜°';
+      navToggle.innerHTML = '☰';
     });
   });
 
