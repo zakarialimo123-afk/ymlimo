@@ -1151,10 +1151,17 @@ ul{list-style:none}
         // Skip if already initialized
         if (input.hasAttribute('data-places')) return;
         input.setAttribute('data-places', '1');
-        new google.maps.places.Autocomplete(input, {
+        var ac = new google.maps.places.Autocomplete(input, {
           types: ['address'],
           componentRestrictions: { country: 'us' },
           fields: ['formatted_address', 'name']
+        });
+        // Clear error when Google fills the address
+        ac.addListener('place_changed', function() {
+          input.classList.remove('field-error');
+          input.classList.add('field-valid');
+          var err = input.parentElement.querySelector('.error-text');
+          if (err) err.classList.remove('show');
         });
       });
     });
@@ -1200,30 +1207,33 @@ ul{list-style:none}
     });
   })();
 
-  // Live field validation on blur
+  // Live field validation on blur (with small delay for autocomplete)
   document.querySelectorAll('.booking-form input, .booking-form select, .booking-form textarea').forEach(function(field) {
     field.addEventListener('blur', function() {
-      var err = this.parentElement.querySelector('.error-text');
-      if (err) err.classList.remove('show');
-      this.classList.remove('field-error');
-      this.classList.remove('field-valid');
-      if (!this.value && this.hasAttribute('required')) { return; }
-      var msg = validateField(this);
-      if (msg) {
-        this.classList.add('field-error');
-        if (err) { err.textContent = msg; err.classList.add('show'); }
-      } else if (this.value) {
-        this.classList.add('field-valid');
-        // Auto-format phone number on blur
-        if (this.type === 'tel' || (this.name && this.name.indexOf('phone') >= 0)) {
-          var raw = this.value.replace(/[\s\-\(\)\+\.]/g,'');
-          if (raw.length === 10) {
-            this.value = '(' + raw.slice(0,3) + ') ' + raw.slice(3,6) + '-' + raw.slice(6);
-          } else if (raw.length === 7) {
-            this.value = raw.slice(0,3) + '-' + raw.slice(3);
+      var self = this;
+      setTimeout(function() {
+        var err = self.parentElement.querySelector('.error-text');
+        if (err) err.classList.remove('show');
+        self.classList.remove('field-error');
+        self.classList.remove('field-valid');
+        if (!self.value && self.hasAttribute('required')) { return; }
+        var msg = validateField(self);
+        if (msg) {
+          self.classList.add('field-error');
+          if (err) { err.textContent = msg; err.classList.add('show'); }
+        } else if (self.value) {
+          self.classList.add('field-valid');
+          // Auto-format phone number on blur
+          if (self.type === 'tel' || (self.name && self.name.indexOf('phone') >= 0)) {
+            var raw = self.value.replace(/[\s\-\(\)\+\.]/g,'');
+            if (raw.length === 10) {
+              self.value = '(' + raw.slice(0,3) + ') ' + raw.slice(3,6) + '-' + raw.slice(6);
+            } else if (raw.length === 7) {
+              self.value = raw.slice(0,3) + '-' + raw.slice(3);
+            }
           }
         }
-      }
+      }, 300);
     });
   });
 
