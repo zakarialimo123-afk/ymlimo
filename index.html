@@ -1105,6 +1105,15 @@ ul{list-style:none}
         if (err) { err.textContent = msg; err.classList.add('show'); }
       } else if (this.value) {
         this.classList.add('field-valid');
+        // Auto-format phone number on blur
+        if (this.type === 'tel' || (this.name && this.name.indexOf('phone') >= 0)) {
+          var raw = this.value.replace(/[\s\-\(\)\+\.]/g,'');
+          if (raw.length === 10) {
+            this.value = '(' + raw.slice(0,3) + ') ' + raw.slice(3,6) + '-' + raw.slice(6);
+          } else if (raw.length === 7) {
+            this.value = raw.slice(0,3) + '-' + raw.slice(3);
+          }
+        }
       }
     });
   });
