@@ -503,14 +503,51 @@ body{font-family:'Inter',-apple-system,sans-serif;color:#1a1a2e;line-height:1.6;
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+emailjs.init('gx__d4TQ_DDkpcHoo');
+
 var nt=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
 nt.addEventListener('click',function(){nl.classList.toggle('open');nt.innerHTML=nl.classList.contains('open')?'&#10005;':'&#9776;'});
 nl.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){nl.classList.remove('open');nt.innerHTML='&#9776;'})});
 window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
 var observer=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
-document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();var btn=this.querySelector('button[type="submit"]'),ot=btn.textContent;btn.textContent='Sending...';btn.disabled=true;setTimeout(function(){btn.textContent='Request Sent. We will call you shortly.';btn.style.background='#22c55e';btn.style.borderColor='#22c55e';btn.style.color='#fff';e.target.reset();setTimeout(function(){btn.textContent=ot;btn.style.background='';btn.style.borderColor='';btn.style.color='';btn.disabled=false},4000)},1200)});
+
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=this.querySelector('button[type="submit"]'),ot=btn.textContent;
+  var f=this.elements;
+  btn.textContent='Sending...';btn.disabled=true;
+  
+  var params = {
+    name: f[0].value,
+    phone: f[1].value,
+    email: f[2].value,
+    passengers: f[3].value,
+    pickup: f[4].value,
+    dropoff: f[5].value,
+    date: f[6].value,
+    time: f[7].value,
+    vehicle: f[8].value || 'Not specified',
+    distance: '',
+    notes: f[9].value
+  };
+
+  emailjs.send('service_nzo2i9t', 'template_r13juyq', params)
+    .then(function(){
+      btn.textContent='Booking Sent! We will call you shortly.';
+      btn.style.background='#22c55e';btn.style.borderColor='#22c55e';btn.style.color='#fff';
+      e.target.reset();
+      setTimeout(function(){btn.textContent=ot;btn.style.background='';btn.style.borderColor='';btn.style.color='';btn.disabled=false},5000);
+    })
+    .catch(function(err){
+      btn.textContent='Error sending. Please try again or call us.';
+      btn.style.background='#dc2626';btn.style.borderColor='#dc2626';btn.style.color='#fff';
+      console.error(err);
+      setTimeout(function(){btn.textContent=ot;btn.style.background='';btn.style.borderColor='';btn.style.color='';btn.disabled=false},4000);
+    });
+});
 </script>
 </body>
 </html>
