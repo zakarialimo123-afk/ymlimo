@@ -959,6 +959,7 @@ ul{list-style:none}
   <a href="#booking" class="book-btn">Book Now →</a>
 </div>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWzvv8mw1El3c33oxIx6JZDZqu5FH8zP4&libraries=places&callback=initAutocomplete&loading=async" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function() {
@@ -1069,13 +1070,34 @@ ul{list-style:none}
     });
   });
 
-  // Booking Tabs
+  // Google Places Autocomplete
+  window.initAutocomplete = function() {
+    if (typeof google === 'undefined' || !google.maps || !google.maps.places) return;
+    ['#standardForm', '#airportForm', '#charterForm'].forEach(function(formId) {
+      var form = document.querySelector(formId);
+      if (!form) return;
+      form.querySelectorAll('input[name="pickup"], input[name="dropoff"]').forEach(function(input) {
+        // Skip if already initialized
+        if (input.hasAttribute('data-places')) return;
+        input.setAttribute('data-places', '1');
+        new google.maps.places.Autocomplete(input, {
+          types: ['address'],
+          componentRestrictions: { country: 'us' },
+          fields: ['formatted_address', 'name']
+        });
+      });
+    });
+  };
+  // Retry on tab switch (forms become visible)
   document.querySelectorAll('.booking-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
       document.querySelectorAll('.booking-tab').forEach(function(t) { t.classList.remove('active'); });
       document.querySelectorAll('.booking-section').forEach(function(s) { s.classList.remove('active'); });
       this.classList.add('active');
       document.getElementById(this.dataset.tab + 'Form').classList.add('active');
+      setTimeout(function() {
+        if (typeof window.initAutocomplete === 'function') window.initAutocomplete();
+      }, 300);
     });
   });
 
