@@ -98,6 +98,7 @@ ul{list-style:none}
 .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero-bg-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(10,10,25,.75) 0%,rgba(10,10,25,.45) 50%,rgba(10,10,25,.2) 100%);z-index:1}
 .hero-content{position:relative;z-index:2;max-width:700px;padding:120px 24px 80px}
+.hero-text-box{background:rgba(10,10,25,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:32px 36px;border-radius:10px;border:1px solid rgba(255,255,255,.06);display:inline-block}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);color:#dbb76a;font-size:.55rem;font-weight:700;letter-spacing:1.5px;padding:6px 14px;border-radius:4px;margin-bottom:20px;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
 .hero h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;line-height:1.05;color:#fff;margin-bottom:16px;letter-spacing:-.5px}
 .hero h1 em{font-style:normal;color:#dbb76a}
@@ -160,7 +161,7 @@ ul{list-style:none}
 .fleet-card:hover .fleet-card-image img{transform:scale(1.08);opacity:.9}
 .fleet-card-image .fleet-emoji{font-size:3.6rem;transition:all .4s;z-index:1;opacity:.85;display:none}
 .fleet-card:hover .fleet-emoji{transform:scale(1.08);opacity:1}
-.fleet-card-image .fleet-overlay{position:absolute;bottom:14px;left:16px;z-index:2}
+.fleet-card-image .fleet-overlay{position:absolute;bottom:12px;left:12px;z-index:2;background:rgba(10,10,25,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:10px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.06)}
 .fleet-card-image .fleet-capacity{font-size:.55rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#c8a456;display:block;margin-bottom:1px}
 .fleet-card-image .fleet-name{font-size:.85rem;font-weight:600;color:#fff;display:block}
 .fleet-card-body{padding:22px}
@@ -324,11 +325,13 @@ ul{list-style:none}
   <div class="hero-bg-overlay"></div>
   <div class="container hero-content">
     <div class="hero-badge">✦ Company-Owned Fleet · Licensed &amp; Insured · Child Seats Available</div>
-    <h1>Flat Rates to O'Hare.<br>No Surge. <em>Ever.</em></h1>
-    <p class="hero-sub">Chicago's premium chauffeured transportation. Company-owned fleet — not a broker. Luxury sedans, Escalade SUVs, stretch limos &amp; party buses. Professional chauffeurs. Child seats available. Book in under 2 minutes.</p>
-    <div class="hero-ctas">
-      <a href="#booking" class="btn btn-gold btn-lg">Book Your Ride →</a>
-      <a href="#pricing" class="btn btn-outline-light btn-lg">See Pricing</a>
+    <div class="hero-text-box">
+      <h1>Flat Rates to O'Hare.<br>No Surge. <em>Ever.</em></h1>
+      <p class="hero-sub">Chicago's premium chauffeured transportation. Company-owned fleet — not a broker. Luxury sedans, Escalade SUVs, stretch limos &amp; party buses. Professional chauffeurs. Child seats available. Book in under 2 minutes.</p>
+      <div class="hero-ctas">
+        <a href="#booking" class="btn btn-gold btn-lg">Book Your Ride →</a>
+        <a href="#pricing" class="btn btn-outline-light btn-lg">See Pricing</a>
+      </div>
     </div>
     <div class="hero-metrics">
       <div class="hero-metric"><span class="num">24/7</span><span class="label">Dispatch</span></div>
