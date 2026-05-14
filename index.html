@@ -64,17 +64,17 @@ ul{list-style:none}
 .section-heading p{font-size:.92rem;color:#5a5a72;line-height:1.65}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-weight:500;font-size:.8rem;padding:14px 32px;border-radius:6px;cursor:pointer;transition:all .3s;border:1px solid transparent;letter-spacing:.3px;text-align:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:.8rem;padding:14px 32px;border-radius:8px;cursor:pointer;transition:all .3s;border:1.5px solid transparent;letter-spacing:.3px;text-align:center}
 .btn-dark{background:#0f0e19;color:#fff;border-color:#0f0e19}
-.btn-dark:hover{background:#d4a13c;border-color:#d4a13c;transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,164,86,.25)}
+.btn-dark:hover{background:#d4a13c;border-color:#d4a13c;transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,161,60,.25)}
 .btn-outline{background:transparent;color:#0f0e19;border-color:#0f0e19}
 .btn-outline:hover{background:#0f0e19;color:#fff}
-.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
 .btn-outline-light:hover{background:#fff;color:#0f0e19;border-color:#fff}
-.btn-gold{background:#d4a13c;color:#fff;border-color:#d4a13c}
-.btn-gold:hover{background:#e0b85c;border-color:#e0b85c;transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,164,86,.25)}
+.btn-gold{background:#d4a13c;color:#0f0e19;border-color:#d4a13c}
+.btn-gold:hover{background:#e0b85c;border-color:#e0b85c;color:#0f0e19;transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,161,60,.3)}
 .btn-ghost{background:transparent;color:#d4a13c;border-color:#d4a13c}
-.btn-ghost:hover{background:rgba(200,164,86,.08)}
+.btn-ghost:hover{background:rgba(212,161,60,.1)}
 .btn-block{width:100%;justify-content:center}
 .btn-lg{padding:16px 40px;font-size:.85rem}
 .btn-sm{padding:8px 18px;font-size:.7rem}
@@ -91,8 +91,8 @@ ul{list-style:none}
 .nav-links a:hover{color:#d4a13c;border-color:#d4a13c}
 .nav-links .nav-cta{background:#0f0e19;color:#fff!important;padding:10px 22px;border-radius:6px;font-weight:600!important;border-bottom:none!important}
 .nav-links .nav-cta:hover{background:#d4a13c;color:#fff!important}
-.nav-links .nav-call{background:transparent;color:#0f0e19!important;padding:10px 18px;border-radius:6px;font-weight:600!important;border:2px solid #d4a13c!important;border-bottom:2px solid #d4a13c!important;gap:6px;display:inline-flex;align-items:center}
-.nav-links .nav-call:hover{background:#d4a13c;color:#fff!important;border-color:#d4a13c!important}
+.nav-links .nav-call{background:#d4a13c;color:#0f0e19!important;padding:10px 18px;border-radius:6px;font-weight:700!important;gap:6px;display:inline-flex;align-items:center}
+.nav-links .nav-call:hover{background:#e0b85c;color:#0f0e19!important}
 .nav-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#0f0e19;padding:4px}
 
 /* ===== HERO ===== */
@@ -269,8 +269,8 @@ ul{list-style:none}
 
 /* ===== STICKY CALL BUTTON (Mobile) ===== */
 .call-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f0e19;padding:12px 20px;justify-content:center;align-items:center;gap:12px;border-top:2px solid #d4a13c}
-.call-bar a{display:flex;align-items:center;justify-content:center;gap:8px;background:#d4a13c;color:#fff;font-weight:600;font-size:.9rem;padding:12px 24px;border-radius:8px;text-decoration:none;flex:1;max-width:320px;letter-spacing:.5px}
-.call-bar a:hover{background:#e0b85c}
+.call-bar a{display:flex;align-items:center;justify-content:center;gap:8px;background:#0f0e19;color:#fff;font-weight:600;font-size:.9rem;padding:12px 24px;border-radius:8px;text-decoration:none;flex:1;max-width:320px;letter-spacing:.5px;border:1.5px solid #d4a13c}
+.call-bar a:hover{background:#d4a13c;color:#0f0e19}
 .call-bar .call-note{font-size:.6rem;color:rgba(255,255,255,.4)}
 
 /* ===== ANIMATIONS ===== */
@@ -1030,8 +1030,7 @@ ul{list-style:none}
             '<div class="stop-entry" data-stop="1">' +
             '<span class="stop-num">Destination 1</span>' +
             '<input type="text" name="dropoff_1" placeholder="Destination address" required />' +
-            '</div>';
-          stopCount = 1;
+            '</div>📞         stopCount = 1;
         }, 5000);
       })
       .catch(function() {
