@@ -114,21 +114,7 @@ ul{list-style:none}
 .as-seen-grid{display:flex;justify-content:center;align-items:center;gap:36px;flex-wrap:wrap}
 .as-seen-item{font-size:.75rem;color:#5a5a72;font-weight:500;letter-spacing:.5px}
 
-.pricing{background:#fff;padding:96px 0}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:960px;margin:0 auto}
-.pricing-card{background:#f8f4ee;padding:40px 32px;border:1px solid rgba(212,161,60,.1);border-radius:8px;position:relative;transition:all .3s;text-align:center}
-.pricing-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.06);border-color:#d4a13c}
-.pricing-card.popular{border:2px solid #d4a13c;background:#fff}
-.pricing-card .p-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#d4a13c;color:#0f0e19;font-size:.55rem;font-weight:700;letter-spacing:1.5px;padding:4px 14px;border-radius:3px;text-transform:uppercase}
-.pricing-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:#0f0e19;margin-bottom:4px}
-.pricing-card .p-sub{font-size:.7rem;color:#8a8a9a;margin-bottom:16px}
-.pricing-card .p-price{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:#0f0e19;margin-bottom:4px}
-.pricing-card .p-price span{font-size:1rem;font-weight:400;color:#8a8a9a}
-.pricing-card .p-from{font-size:.65rem;color:#8a8a9a;margin-bottom:20px}
-.pricing-card .p-features{text-align:left;margin-bottom:24px}
-.pricing-card .p-features li{font-size:.75rem;color:#5a5a72;padding:5px 0;padding-left:20px;position:relative;border-bottom:1px solid rgba(0,0,0,.04)}
-.pricing-card .p-features li:last-child{border:none}
-.pricing-card .p-features li::before{content:'✓';position:absolute;left:0;color:#d4a13c;font-weight:700}
+
 
 .services{background:#f8f4ee;padding:96px 0}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
@@ -209,8 +195,9 @@ ul{list-style:none}
 .booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{outline:none;border-color:#d4a13c;box-shadow:0 0 0 3px rgba(212,161,60,.1)}
 .booking-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%235a5a72'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:28px}
 .booking-form textarea{resize:vertical}
-input[type='date'],input[type='time']{appearance:auto!important;-webkit-appearance:auto!important;-moz-appearance:auto!important;min-height:48px;font-family:'Inter',sans-serif;font-size:.82rem;padding:10px 12px;border:1px solid #ddd;border-radius:4px;background:#fff;color:#0f0e19}
-input[type='date']::-webkit-calendar-picker-indicator,input[type='time']::-webkit-calendar-picker-indicator{margin-left:0;padding:6px;cursor:pointer}
+.booking-form input[type='date'],.booking-form input[type='time']{min-height:48px;font-size:16px!important;padding:11px 14px;width:100%;margin-bottom:10px;cursor:pointer;background:#fff;border:1px solid #ddd;border-radius:4px;color:#0f0e19;font-family:'Inter',sans-serif}
+.booking-form input[type='date']{min-width:140px}
+.booking-form input[type='time']{min-width:120px}
 
 .contact-lines{display:flex;flex-direction:column;gap:14px}
 .contact-line{display:flex;align-items:center;gap:12px}
@@ -273,8 +260,7 @@ input[type='date']::-webkit-calendar-picker-indicator,input[type='time']::-webki
   .fleet-card-image img{opacity:.85}
   .fleet-card-body{padding:18px}
   .service-card{padding:24px 20px}
-  .pricing-card{padding:28px 20px}
-  .pricing-grid{grid-template-columns:1fr;max-width:360px;gap:16px}
+
   .btn{padding:12px 24px;font-size:.75rem}
   .btn-lg{padding:14px 28px;font-size:.8rem}
   .form-row{grid-template-columns:1fr}
@@ -295,7 +281,6 @@ input[type='date']::-webkit-calendar-picker-indicator,input[type='time']::-webki
   .hero-ctas{flex-direction:column}
   .btn{width:100%;justify-content:center}
   .fleet-grid{grid-template-columns:1fr}
-  .pricing-card{padding:24px 16px}
   .section-heading h2{font-size:1.3rem}
   .section{padding:36px 0}
 }
@@ -309,7 +294,7 @@ input[type='date']::-webkit-calendar-picker-indicator,input[type='time']::-webki
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
-      <li><a href="#pricing">Pricing</a></li>
+
       <li><a href="#fleet">Fleet</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -329,7 +314,7 @@ input[type='date']::-webkit-calendar-picker-indicator,input[type='time']::-webki
       <p class="hero-sub">Chicago's premium chauffeured transportation. Luxury sedans, SUVs, stretch limos &amp; party buses. Professional chauffeurs. Child seats available. Book in under 2 minutes.</p>
       <div class="hero-ctas">
         <a href="#booking" class="btn btn-gold btn-lg">Book Your Ride →</a>
-        <a href="#pricing" class="btn btn-outline-light btn-lg">See Pricing</a>
+        <a href="#fleet" class="btn btn-outline-light btn-lg">Discover Our Fleet →</a>
       </div>
     </div>
     <div class="hero-metrics">
@@ -418,67 +403,6 @@ input[type='date']::-webkit-calendar-picker-indicator,input[type='time']::-webki
           <li>Custom scheduling &amp; route planning</li>
           <li>Wi-Fi, restroom, PA system onboard</li>
         </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="pricing" id="pricing">
-  <div class="container">
-    <div class="section-heading reveal">
-      <span class="section-tag">Transparent Pricing</span>
-      <h2>Transparent Pricing</h2>
-      <p>No surge pricing. No hidden fees. The rate you book is the rate you pay — 6 AM, midnight, or in a snowstorm.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card reveal">
-        <h3>Executive</h3>
-        <p class="p-sub">Daily luxury · Airport &amp; business</p>
-        <div class="p-price">Quote</div>
-        <p class="p-from">Get a flat rate for your trip</p>
-        <ul class="p-features">
-          <li>Luxury Sedan</li>
-          <li>1-3 passengers</li>
-          <li>Real-time flight tracking</li>
-          <li>Meet &amp; greet with name sign</li>
-          <li>Complimentary water &amp; Wi-Fi</li>
-          <li>Professional uniformed chauffeur</li>
-          <li>Luggage assistance</li>
-        </ul>
-        <a href="#booking" class="btn btn-outline btn-block">Get a Quote</a>
-      </div>
-      <div class="pricing-card popular reveal">
-        <span class="p-badge">★ Most Popular</span>
-        <h3>Premium</h3>
-        <p class="p-sub">Elevated service · Every occasion</p>
-        <div class="p-price">Quote</div>
-        <p class="p-from">Get a flat rate for your trip</p>
-        <ul class="p-features">
-          <li>Luxury SUV</li>
-          <li>1-6 passengers</li>
-          <li>Everything in Executive +</li>
-          <li>Premium leather seating · Entertainment</li>
-          <li>Extended hours available</li>
-          <li>Priority booking guarantee</li>
-          <li>Extra luggage capacity</li>
-        </ul>
-        <a href="#booking" class="btn btn-gold btn-block">Get a Quote</a>
-      </div>
-      <div class="pricing-card reveal">
-        <h3>VIP / Events</h3>
-        <p class="p-sub">No limits · Weddings &amp; parties</p>
-        <div class="p-price">Quote</div>
-        <p class="p-from">Custom quoted for your event</p>
-        <ul class="p-features">
-          <li>Stretch Limo / Party Bus / Sprinter</li>
-          <li>1-30 passengers</li>
-          <li>Everything in Premium +</li>
-          <li>Red carpet arrival experience</li>
-          <li>Champagne &amp; bar service</li>
-          <li>Custom decorations</li>
-          <li>Multi-vehicle coordination</li>
-        </ul>
-        <a href="#booking" class="btn btn-outline btn-block">Get a Quote</a>
       </div>
     </div>
   </div>
@@ -936,6 +860,41 @@ input[type='date']::-webkit-calendar-picker-indicator,input[type='time']::-webki
       var wasActive = item.classList.contains('active');
       document.querySelectorAll('.faq-item').forEach(function(f) { f.classList.remove('active'); });
       if (!wasActive) item.classList.add('active');
+    });
+  });
+
+  // Date/Time picker fix for mobile
+  function fixDatePickers() {
+    var dt = document.querySelectorAll('.booking-form input[type="date"], .booking-form input[type="time"]');
+    dt.forEach(function(inp) {
+      inp.setAttribute('readonly', true);  // prevent keyboard; native picker still works
+      // Force native picker on any tap
+      inp.addEventListener('click', function(e) {
+        if (typeof this.showPicker === 'function') {
+          this.showPicker();
+        }
+        this.focus();
+      });
+      inp.addEventListener('touchstart', function(e) {
+        if (typeof this.showPicker === 'function') {
+          this.showPicker();
+        }
+      }, {passive:true});
+      // Remove readonly when value is set so form can submit
+      inp.addEventListener('change', function() {
+        this.removeAttribute('readonly');
+      });
+      // On blur (picker closed), also remove readonly if value exists
+      inp.addEventListener('blur', function() {
+        if (this.value) this.removeAttribute('readonly');
+      });
+    });
+  }
+  fixDatePickers();
+  // Also re-fix when booking tabs switch (new forms become visible)
+  document.querySelectorAll('.booking-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      setTimeout(fixDatePickers, 100);
     });
   });
 
