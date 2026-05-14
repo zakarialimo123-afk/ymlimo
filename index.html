@@ -109,11 +109,6 @@ ul{list-style:none}
 .trust-item{font-size:.7rem;color:#4a4a5a;display:flex;align-items:center;gap:6px;font-weight:500}
 .trust-item .check{color:#22c55e;font-size:.85rem;font-weight:700}
 
-.as-seen{background:#fff;padding:32px 0;border-bottom:1px solid rgba(0,0,0,.04)}
-.as-seen-label{text-align:center;font-size:.55rem;color:#8a8a9a;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;font-weight:600}
-.as-seen-grid{display:flex;justify-content:center;align-items:center;gap:36px;flex-wrap:wrap}
-.as-seen-item{font-size:.75rem;color:#5a5a72;font-weight:500;letter-spacing:.5px}
-
 
 
 .services{background:#f8f4ee;padding:96px 0}
@@ -218,6 +213,10 @@ ul{list-style:none}
 .footer-links li{font-size:.68rem;padding:2px 0}
 .footer-links a{color:rgba(255,255,255,.4);transition:color .3s}
 .footer-links a:hover{color:#d4a13c}
+.footer-credentials{padding:32px 0;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+.footer-credentials .fc-label{display:block;font-size:.5rem;color:rgba(255,255,255,.25);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.footer-credentials .fc-grid{display:flex;justify-content:center;align-items:center;gap:28px;flex-wrap:wrap}
+.footer-credentials .fc-grid span{font-size:.68rem;color:rgba(255,255,255,.4);letter-spacing:.3px}
 .footer-bottom{text-align:center;padding:20px 0;font-size:.6rem;color:rgba(255,255,255,.15)}
 .footer-bottom .f-legal{font-size:.55rem;color:rgba(255,255,255,.1);margin-top:4px}
 
@@ -270,7 +269,6 @@ ul{list-style:none}
   .footer-grid{grid-template-columns:1fr}
   .trust-grid{gap:12px}
   .reviews-platforms{gap:8px}
-  .as-seen-grid{gap:16px}
   .why-card{padding:24px 16px}
 }
 @media(max-width:480px){
@@ -334,18 +332,6 @@ ul{list-style:none}
     <div class="trust-item"><span class="check">✓</span> No Surge Pricing</div>
     <div class="trust-item"><span class="check">✓</span> Child Seats Available</div>
     <div class="trust-item"><span class="check">✓</span> Real-Time Flight Tracking</div>
-  </div>
-</section>
-
-<section class="as-seen">
-  <div class="container">
-    <div class="as-seen-label">Licensed &amp; Insured · Professional Chauffeurs</div>
-    <div class="as-seen-grid">
-      <span class="as-seen-item">✓ Licensed by the City of Chicago</span>
-      <span class="as-seen-item">✓ Chauffeured Luxury Vehicles</span>
-      <span class="as-seen-item">✓ Company-Owned Fleet</span>
-      <span class="as-seen-item">✓ Background-Checked Drivers</span>
-    </div>
   </div>
 </section>
 
@@ -803,6 +789,15 @@ ul{list-style:none}
           <li>Chicago, IL</li>
           <li>24/7 Dispatch</li>
         </ul>
+      </div>
+    </div>
+    <div class="footer-credentials">
+      <span class="fc-label">✓ Licensed &amp; Insured · Professional Chauffeurs</span>
+      <div class="fc-grid">
+        <span>✓ Licensed by the City of Chicago</span>
+        <span>✓ Chauffeured Luxury Vehicles</span>
+        <span>✓ Company-Owned Fleet</span>
+        <span>✓ Background-Checked Drivers</span>
       </div>
     </div>
     <div class="footer-bottom">
