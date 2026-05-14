@@ -1207,8 +1207,8 @@ ul{list-style:none}
     });
   })();
 
-  // Live field validation on blur (with small delay for autocomplete)
-  document.querySelectorAll('.booking-form input, .booking-form select, .booking-form textarea').forEach(function(field) {
+  // Live field validation on blur (skip autocomplete fields - validated on submit)
+  document.querySelectorAll('.booking-form input:not([data-places]), .booking-form select, .booking-form textarea').forEach(function(field) {
     field.addEventListener('blur', function() {
       var self = this;
       setTimeout(function() {
