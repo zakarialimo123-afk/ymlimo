@@ -4304,7 +4304,7 @@ ul{list-style:none}
 
 
 
-        <span class="chatbot-name">Your Chauffeur</span>
+        <span class="chatbot-name">Virtual Chauffeur</span>
 
 
 
@@ -4332,7 +4332,7 @@ ul{list-style:none}
 
 
 
-        <span class="msg-label">Your Chauffeur</span>
+        <span class="msg-label">Virtual Chauffeur</span>
 
 
 
@@ -5693,477 +5693,43 @@ ul{list-style:none}
 
 
 
-  // Chatbot
+  // Chatbot loaded from script.js
 
 
 
-  (function() {
 
 
 
-    var btn = document.getElementById('chatbotBtn');
 
+    // chatbot initialized in script.js
 
 
-    var popup = document.getElementById('chatbotPopup');
 
 
 
-    var close = document.getElementById('chatbotClose');
 
 
 
-    var body = document.getElementById('chatbotBody');
 
 
 
-    var input = document.getElementById('chatbotInput');
 
 
 
-    var send = document.getElementById('chatbotSend');
 
 
 
-    if (!btn) return;
 
 
 
-
-
-
-
-    var answers = {
-
-
-
-      fleet: 'We have 5 vehicle types: <b>Luxury Sedan</b> (up to 3), <b>Luxury SUV</b> (up to 6) — our most popular, <b>Stretch Limousine</b> (up to 10), <b>Sprinter Van</b> (up to 12), and <b>Party Bus</b> (up to 30). All company-owned, all immaculate. Check "Our Fleet" above to see them!',
-
-
-
-      pricing: 'We offer flat-rate quotes with no surge pricing. Just fill out the booking form and we\'ll respond within minutes with your personalized quote. Or call (773) 809-9782 for an instant quote.',
-
-
-
-      airport: 'We do airport transfers to O\'Hare and Midway with real-time flight tracking. Your chauffeur meets you at baggage claim with a name sign. Free wait time — 30 min domestic, 60 min international.',
-
-
-
-      human: 'You can reach us 24/7 at <b>(773) 809-9782</b> or email info@ymlimo.com. Our dispatch team is always here to help.'
-
-
-
-    };
-
-
-
-
-
-
-
-    var optionsShown = false;
-
-
-
-
-
-
-
-    function scrollBottom() {
-
-
-
-      setTimeout(function() { body.scrollTop = body.scrollHeight; }, 50);
-
-
-
-    }
-
-
-
-
-
-
-
-    function addMsg(text, type) {
-
-
-
-      var div = document.createElement('div');
-
-
-
-      div.className = 'msg ' + type;
-
-
-
-      if (type === 'bot') {
-
-
-
-        div.innerHTML = '<span class="msg-label">Your Chauffeur</span>' + text;
-
-
-
-      } else {
-
-
-
-        div.innerHTML = text;
-
-
-
-      }
-
-
-
-      body.appendChild(div);
-
-
-
-      scrollBottom();
-
-
-
-    }
-
-
-
-
-
-
-
-    function makeOptBtn(key, label) {
-
-
-
-      var b = document.createElement('button');
-
-
-
-      b.textContent = label;
-
-
-
-      b.dataset.answer = key;
-
-
-
-      return b;
-
-
-
-    }
-
-
-
-
-
-
-
-    function showOptions() {
-
-
-
-      if (optionsShown) return;
-
-
-
-      optionsShown = true;
-
-
-
-      var div = document.createElement('div');
-
-
-
-      div.className = 'msg bot options-msg';
-
-
-
-      div.innerHTML = '<span class="msg-label">Your Chauffeur</span>Anything else?';
-
-
-
-      var optDiv = document.createElement('div');
-
-
-
-      optDiv.className = 'msg-options';
-
-
-
-      optDiv.appendChild(makeOptBtn('fleet','What vehicles?'));
-
-
-
-      optDiv.appendChild(makeOptBtn('pricing','How to book?'));
-
-
-
-      optDiv.appendChild(makeOptBtn('airport','Airport info'));
-
-
-
-      optDiv.appendChild(makeOptBtn('human','Talk to someone'));
-
-
-
-      div.appendChild(optDiv);
-
-
-
-      body.appendChild(div);
-
-
-
-      scrollBottom();
-
-
-
-    }
-
-
-
-
-
-
-
-    function handleAnswer(key) {
-
-
-
-      if (!answers[key]) return;
-
-
-
-      optionsShown = false;
-
-
-
-      // Remove any existing options-msg
-
-
-
-      var old = body.querySelector('.options-msg');
-
-
-
-      if (old) old.remove();
-
-
-
-      addMsg(answers[key], 'bot');
-
-
-
-      setTimeout(showOptions, 800);
-
-
-
-    }
-
-
-
-
-
-
-
-    function handleSend() {
-
-
-
-      var text = input.value.trim();
-
-
-
-      if (!text) return;
-
-
-
-      optionsShown = false;
-
-
-
-      var old = body.querySelector('.options-msg');
-
-
-
-      if (old) old.remove();
-
-
-
-      addMsg(text, 'user');
-
-
-
-      input.value = '';
-
-
-
-      var lower = text.toLowerCase();
-
-
-
-      setTimeout(function() {
-
-
-
-        if (lower.indexOf('fleet') >= 0 || lower.indexOf('vehicle') >= 0 || lower.indexOf('suv') >= 0 || lower.indexOf('sedan') >= 0 || lower.indexOf('limo') >= 0 || lower.indexOf('sprinter') >= 0 || lower.indexOf('party bus') >= 0) {
-
-
-
-          addMsg(answers.fleet, 'bot');
-
-
-
-        } else if (lower.indexOf('price') >= 0 || lower.indexOf('cost') >= 0 || lower.indexOf('quote') >= 0 || lower.indexOf('rate') >= 0 || lower.indexOf('much') >= 0) {
-
-
-
-          addMsg(answers.pricing, 'bot');
-
-
-
-        } else if (lower.indexOf('airport') >= 0 || lower.indexOf('ohare') >= 0 || lower.indexOf('midway') >= 0 || lower.indexOf('flight') >= 0 || lower.indexOf('ord') >= 0 || lower.indexOf('mdw') >= 0) {
-
-
-
-          addMsg(answers.airport, 'bot');
-
-
-
-        } else if (lower.indexOf('human') >= 0 || lower.indexOf('talk') >= 0 || lower.indexOf('person') >= 0 || lower.indexOf('call') >= 0 || lower.indexOf('speak') >= 0 || lower.indexOf('agent') >= 0) {
-
-
-
-          addMsg(answers.human, 'bot');
-
-
-
-        } else if (lower.indexOf('wedding') >= 0 || lower.indexOf('prom') >= 0 || lower.indexOf('event') >= 0 || lower.indexOf('party') >= 0) {
-
-
-
-          addMsg('We love events! Our stretch limousine and party bus are popular for weddings, proms, and nights out. Check the fleet section above or call <b>(773) 809-9782</b> and we\'ll plan it together.', 'bot');
-
-
-
-        } else if (lower.indexOf('child') >= 0 || lower.indexOf('kid') >= 0 || lower.indexOf('car seat') >= 0 || lower.indexOf('booster') >= 0) {
-
-
-
-          addMsg('Yes — we provide car seats and booster seats at no extra charge! Just let us know when booking and we\'ll have them properly installed and ready before pickup.', 'bot');
-
-
-
-        } else if (lower.indexOf('hi') >= 0 || lower.indexOf('hello') >= 0 || lower.indexOf('hey') >= 0 || lower.indexOf('yo') >= 0 || lower.indexOf('sup') >= 0) {
-
-
-
-          addMsg('Hey there! Welcome to YM Limousine. Need a ride? Ask me about our fleet, pricing, or airport service. Or just browse above!', 'bot');
-
-
-
-        } else {
-
-
-
-          var fallbacks = [
-            'Great question! For the fastest answer, give us a call at <b>(773) 809-9782</b> — we pick up 24/7.',
-            'Our dispatch team can help with that. Call <b>(773) 809-9782</b> or I can connect you if you tell me more!',
-            'I\'m a simple bot but our team isn\'t. Call <b>(773) 809-9782</b> and you\'ll get a real person instantly.',
-            'Not sure I caught that — try asking about fleet, pricing, or airport transfers, or call <b>(773) 809-9782</b> for anything specific!'
-          ];
-          addMsg(fallbacks[Math.floor(Math.random() * fallbacks.length)], 'bot');
-
-
-
-        }
-
-
-
-        setTimeout(showOptions, 800);
-
-
-
-      }, 600);
-
-
-
-    }
-
-
-
-
-
-
-
-    btn.addEventListener('click', function() {
-
-
-
-      popup.classList.toggle('open');
-
-
-
-      if (popup.classList.contains('open')) {
-
-
-
-        setTimeout(function() { scrollBottom(); input.focus(); }, 300);
-
-
-
-      }
-
-
-
-    });
-
-
-
-    close.addEventListener('click', function() { popup.classList.remove('open'); });
-
-
-
-    send.addEventListener('click', handleSend);
-
-
-
-    input.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSend(); });
-
-
-
-
-
-
-
-    body.addEventListener('click', function(e) {
-
-
-
-      var b = e.target.closest('[data-answer]');
-
-
-
-      if (b) handleAnswer(b.dataset.answer);
-
-
-
-    });
-
-
-
-  })();
-
-
-
-})();
 
 
 
 </script>
+
+
+
+<script src="script.js"></script>
 
 
 
