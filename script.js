@@ -99,8 +99,8 @@ class ChatbotAI {
       intents.push('childseats');
     }
 
-    // Service area — including regional destinations
-    if (this.matchAny(t, ['area', 'where', 'location', 'chicago', 'suburb', 'suburbs', 'neighborhood', 'naperville', 'evanston', 'lincoln park', 'river north', 'gold coast', 'wicker park', 'hyde park', 'milwaukee', 'wisconsin', 'indiana', 'regional', 'long distance', 'road trip', 'interstate', 'out of town', 'outside chicago', 'go to', 'trip to', 'trips to'])) {
+    // Service area
+    if (this.matchAny(t, ['area', 'where', 'location', 'chicago', 'suburb', 'suburbs', 'neighborhood', 'naperville', 'evanston', 'lincoln park', 'river north', 'gold coast', 'wicker park', 'hyde park'])) {
       intents.push('area');
     }
 
@@ -234,10 +234,6 @@ class ChatbotAI {
     }
 
     if (intents.includes('area')) {
-      // Detect if they're asking about a specific trip/destination outside Chicago
-      if (this.matchAny(text.toLowerCase(), ['milwaukee', 'wisconsin', 'indiana', 'road trip', 'long distance', 'interstate', 'out of town', 'outside', 'trip to', 'go to'])) {
-        return "Great question! We're based in <b>Chicago</b> and primarily serve the metro area and suburbs. For trips beyond that — like <b>Milwaukee</b>, Wisconsin, or Indiana — we handle those on a <b>custom quote basis</b>. Just give us a call at <b>(773) 809-9782</b> or fill out the booking form with your destination details and we'll get you a price. We've done regional runs before and can usually make it work!";
-      }
       return "We serve <b>all of Chicago</b> and most suburbs — from Lincoln Park and River North to Naperville and Evanston. We also cover all Chicago airports (ORD & MDW), train stations (Union Station, Ogilvie), and event venues (United Center, Soldier Field, Wrigley Field, McCormick Place). Not sure if we cover your area? Just ask!";
     }
 
@@ -271,9 +267,9 @@ class ChatbotAI {
 
     if (intents.includes('thanks')) {
       if (this.memory.askedAbout.length > 0) {
-        return "You got it 🙌. If you're ready to lock in a ride, hit the booking form above or call <b>(773) 809-9782</b> — we're here 24/7.";
+        return "You're very welcome! To get your ride set up, just fill out the booking form above or call <b>(773) 809-9782</b> anytime. We're here 24/7. Safe travels! 🚗";
       }
-      return "No problem, that's what I'm here for. Anything else I can help with?";
+      return "Happy to help! That's what we're here for. Anytime you need a ride in Chicago, you know where to find us. Anything else?";
     }
 
     if (intents.includes('farewell')) {
@@ -310,7 +306,7 @@ class ChatbotAI {
     this.fleet.forEach(v => {
       response += `<b>${v.name}</b> — ${v.capacity} — ${v.perfect}<br>`;
     });
-    response += "<br>All company-owned, maintained by us, driven by our professional chauffeurs. Which one catches your eye?";
+    response += "<br>All company-owned, maintained by us, driven by our professional chauffeurs. Which one interests you?";
     return response;
   }
 
@@ -342,9 +338,9 @@ class ChatbotAI {
 
     // General intelligent fallback
     const fallbacks = [
-      "Not quite sure I got that — no worries though. You can ask about <b>our fleet</b>, <b>pricing</b>, <b>airport pickups</b>, <b>events</b>, or anything YM Limo related. Or just say 'talk to a person' and I'll get you a real human 24/7.",
-      "I want to help but I'm not following yet. Try something like 'What vehicles do you have?', 'How much to O\'Hare?', or 'I need a ride for 8 people.' Or call <b>(773) 809-9782</b> and a real person will sort you out.",
-      "Let me try again — what are you after? A vehicle recommendation? Price quote? Airport run? Event transport? Tell me more and I'll get you sorted. Or hit 'talk to a person' if it's something complex."
+      "Hmm, I want to make sure I get you the right info. You can ask me about <b>our fleet</b>, <b>pricing</b>, <b>airport pickups</b>, <b>events</b>, or anything about YM Limousine. Or if you prefer, call <b>(773) 809-9782</b> — a real person picks up 24/7!",
+      "I'm still learning but getting better every day! Try asking me something like \"What vehicles do you have?\", \"How much for a ride to O'Hare?\", or \"I need a car for 8 people.\" Or just call <b>(773) 809-9782</b> for anything specific!",
+      "Let me try — what are you looking for? A specific vehicle? A price quote? Airport pickup? I can handle all of that. Or if it's something complex, just say \"talk to a person\" and I'll connect you right away!"
     ];
 
     return fallbacks[Math.floor(Math.random() * fallbacks.length)];
