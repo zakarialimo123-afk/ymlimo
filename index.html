@@ -2496,7 +2496,7 @@ ul{list-style:none}
 
 
 
-      <a href="#" class="btn btn-outline btn-sm" onclick="alert('Set up a Google Business Profile first, then I can link the review page here!');return false;">Leave a Review</a>
+      <a href="https://www.google.com/search?q=Y.M.+Limousine+Inc.+reviews" target="_blank" class="btn btn-outline btn-sm" id="reviewBtn">Leave a Google Review</a>
 
 
 
@@ -6009,7 +6009,7 @@ ul{list-style:none}
 
 
 
-        if (lower.indexOf('fleet') >= 0 || lower.indexOf('vehicle') >= 0 || lower.indexOf('suv') >= 0 || lower.indexOf('sedan') >= 0 || lower.indexOf('limo') >= 0) {
+        if (lower.indexOf('fleet') >= 0 || lower.indexOf('vehicle') >= 0 || lower.indexOf('suv') >= 0 || lower.indexOf('sedan') >= 0 || lower.indexOf('limo') >= 0 || lower.indexOf('sprinter') >= 0 || lower.indexOf('party bus') >= 0) {
 
 
 
@@ -6017,7 +6017,7 @@ ul{list-style:none}
 
 
 
-        } else if (lower.indexOf('price') >= 0 || lower.indexOf('cost') >= 0 || lower.indexOf('quote') >= 0 || lower.indexOf('rate') >= 0) {
+        } else if (lower.indexOf('price') >= 0 || lower.indexOf('cost') >= 0 || lower.indexOf('quote') >= 0 || lower.indexOf('rate') >= 0 || lower.indexOf('much') >= 0) {
 
 
 
@@ -6025,7 +6025,7 @@ ul{list-style:none}
 
 
 
-        } else if (lower.indexOf('airport') >= 0 || lower.indexOf('ohare') >= 0 || lower.indexOf('midway') >= 0 || lower.indexOf('flight') >= 0) {
+        } else if (lower.indexOf('airport') >= 0 || lower.indexOf('ohare') >= 0 || lower.indexOf('midway') >= 0 || lower.indexOf('flight') >= 0 || lower.indexOf('ord') >= 0 || lower.indexOf('mdw') >= 0) {
 
 
 
@@ -6033,7 +6033,7 @@ ul{list-style:none}
 
 
 
-        } else if (lower.indexOf('human') >= 0 || lower.indexOf('talk') >= 0 || lower.indexOf('person') >= 0 || lower.indexOf('call') >= 0) {
+        } else if (lower.indexOf('human') >= 0 || lower.indexOf('talk') >= 0 || lower.indexOf('person') >= 0 || lower.indexOf('call') >= 0 || lower.indexOf('speak') >= 0 || lower.indexOf('agent') >= 0) {
 
 
 
@@ -6041,11 +6041,41 @@ ul{list-style:none}
 
 
 
+        } else if (lower.indexOf('wedding') >= 0 || lower.indexOf('prom') >= 0 || lower.indexOf('event') >= 0 || lower.indexOf('party') >= 0) {
+
+
+
+          addMsg('We love events! Our stretch limousine and party bus are popular for weddings, proms, and nights out. Check the fleet section above or call <b>(773) 809-9782</b> and we\'ll plan it together.', 'bot');
+
+
+
+        } else if (lower.indexOf('child') >= 0 || lower.indexOf('kid') >= 0 || lower.indexOf('car seat') >= 0 || lower.indexOf('booster') >= 0) {
+
+
+
+          addMsg('Yes — we provide car seats and booster seats at no extra charge! Just let us know when booking and we\'ll have them properly installed and ready before pickup.', 'bot');
+
+
+
+        } else if (lower.indexOf('hi') >= 0 || lower.indexOf('hello') >= 0 || lower.indexOf('hey') >= 0 || lower.indexOf('yo') >= 0 || lower.indexOf('sup') >= 0) {
+
+
+
+          addMsg('Hey there! Welcome to YM Limousine. Need a ride? Ask me about our fleet, pricing, or airport service. Or just browse above!', 'bot');
+
+
+
         } else {
 
 
 
-          addMsg('Thanks! A real team member will get back to you shortly. In the meantime, feel free to call us at <b>(773) 809-9782</b> for immediate help.', 'bot');
+          var fallbacks = [
+            'Great question! For the fastest answer, give us a call at <b>(773) 809-9782</b> — we pick up 24/7.',
+            'Our dispatch team can help with that. Call <b>(773) 809-9782</b> or I can connect you if you tell me more!',
+            'I\'m a simple bot but our team isn\'t. Call <b>(773) 809-9782</b> and you\'ll get a real person instantly.',
+            'Not sure I caught that — try asking about fleet, pricing, or airport transfers, or call <b>(773) 809-9782</b> for anything specific!'
+          ];
+          addMsg(fallbacks[Math.floor(Math.random() * fallbacks.length)], 'bot');
 
 
 
