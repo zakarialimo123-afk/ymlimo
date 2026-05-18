@@ -1071,7 +1071,7 @@ ul{list-style:none}
 
 
 
-.msg-options{display:flex;flex-direction:column;gap:4px;margin-top:6px}
+.msg-options{display:flex;flex-direction:column;gap:4px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(200,151,62,.15)}
 
 
 
@@ -5917,7 +5917,7 @@ ul{list-style:none}
 
 
 
-    function showOptions() {
+    function appendOptions() {
 
 
 
@@ -5929,15 +5929,27 @@ ul{list-style:none}
 
 
 
-      var div = document.createElement('div');
+      // Find the last bot message and attach options inline
 
 
 
-      div.className = 'msg bot options-msg';
+      var msgs = body.querySelectorAll('.msg.bot');
 
 
 
-      div.innerHTML = '<span class="msg-label">Virtual Chauffeur</span>Anything else?';
+      if (!msgs.length) return;
+
+
+
+      var last = msgs[msgs.length - 1];
+
+
+
+      // Don't add options twice to the same message
+
+
+
+      if (last.querySelector('.msg-options')) return;
 
 
 
@@ -5973,11 +5985,7 @@ ul{list-style:none}
 
 
 
-      div.appendChild(optDiv);
-
-
-
-      body.appendChild(div);
+      last.appendChild(optDiv);
 
 
 
@@ -6005,23 +6013,11 @@ ul{list-style:none}
 
 
 
-      // Remove any existing options-msg
-
-
-
-      var old = body.querySelector('.options-msg');
-
-
-
-      if (old) old.remove();
-
-
-
       addMsg(answers[key], 'bot');
 
 
 
-      setTimeout(showOptions, 800);
+      setTimeout(appendOptions, 400);
 
 
 
@@ -6049,14 +6045,6 @@ ul{list-style:none}
 
 
 
-      var old = body.querySelector('.options-msg');
-
-
-
-      if (old) old.remove();
-
-
-
       addMsg(text, 'user');
 
 
@@ -6077,103 +6065,55 @@ ul{list-style:none}
 
 
 
-        var matchers = [
+        // Split input into individual word tokens (removes punctuation)
 
 
 
-          { key: 'hello', words: ['hi','hello','hey','sup','yo','good morning','good afternoon','good evening','howdy'] },
+        var words = lower.split(/[^a-z0-9']+/).filter(function(w){ return w.length > 0; });
 
 
 
-          { key: 'fleet', words: ['fleet','vehicle','suv','sedan','limo','stretch','sprinter','party bus','van','what do you have','types','models','cars'] },
+        // Helper: does any word in the input exactly match a trigger word?
 
 
 
-          { key: 'pricing', words: ['price','cost','quote','rate','how much','fee','charges','afford','pricing','budget','dollar'] },
+        function hasWord(triggers) {
 
 
 
-          { key: 'airport', words: ['airport','ohare','o\'hare','midway','flight','ord','mdw','pickup','baggage','terminal','travel','flying','landing','arrival','departure'] },
+          for (var wi = 0; wi < words.length; wi++) {
 
 
 
-          { key: 'wedding', words: ['wedding','bride','groom','marry','reception','ceremony','red carpet','bridal','prom','quince','bouquet','champagne'] },
+            for (var ti = 0; ti < triggers.length; ti++) {
 
 
 
-          { key: 'corporate', words: ['corporate','business','meeting','conference','executive','net-30','employee','office','road show','account'] },
+              // Multi-word phrase: check with indexOf
 
 
 
-          { key: 'group', words: ['group','charter','motorcoach','bus','team','convention','large','party of','sports','school','tour'] },
+              if (triggers[ti].indexOf(' ') >= 0) {
 
 
 
-          { key: 'childseat', words: ['child','car seat','booster','kids','baby','toddler','infant','children','little ones'] },
+                if (lower.indexOf(triggers[ti]) >= 0) return true;
 
 
 
-          { key: 'cancel', words: ['cancel','refund','reschedule','24 hour','cancellation','change my','modify'] },
+              } else {
 
 
 
-          { key: 'areas', words: ['area','serve','suburb','chicago','location','where','city','north shore','western'] },
+                // Single word: exact match only
 
 
 
-          { key: 'hours', words: ['hour','open','24/7','available','when','time','late','night','early','midnight','weekend','sunday'] },
+                if (words[wi] === triggers[ti]) return true;
 
 
 
-          { key: 'multistop', words: ['multi','stop','multiple','route','errand','bar crawl','pickup','dropoff','several'] },
-
-
-
-          { key: 'booking', words: ['book','reserve','form','schedule','reservation','online','how do i','sign up','register'] },
-
-
-
-          { key: 'insurance', words: ['insure','safety','liability','licensed','permit','commercial','bond','insured','legal','trust','certified'] },
-
-
-
-          { key: 'human', words: ['human','talk','person','call','speak','agent','representative','real','dispatch','phone number'] }
-
-
-
-        ];
-
-
-
-        for (var m = 0; m < matchers.length; m++) {
-
-
-
-          for (var w = 0; w < matchers[m].words.length; w++) {
-
-
-
-            if (lower.indexOf(matchers[m].words[w]) >= 0) {
-
-
-
-              addMsg(answers[matchers[m].key], 'bot');
-
-
-
-              matched = true;
-
-
-
-              w = matchers[m].words.length;
-
-
-
-              m = matchers.length;
-
-
-
-              break;
+              }
 
 
 
@@ -6182,6 +6122,198 @@ ul{list-style:none}
 
 
           }
+
+
+
+          return false;
+
+
+
+        }
+
+
+
+        // Greetings & question starters (checked first so they don't steal matches)
+
+
+
+        if (hasWord(['hello','hey','sup','yo','howdy'])) {
+
+
+
+          addMsg(answers.hello, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        // Fleet / vehicle questions
+
+
+
+        if (hasWord(['fleet','vehicle','suv','sedan','limo','stretch','sprinter','van','types','models','cars','car','truck','people','person','passenger','passengers','capacity','how many','recommend','recommendation','best','choose','difference','whats the difference'])) {
+
+
+
+          addMsg(answers.fleet, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['price','cost','quote','rate','fee','charges','afford','pricing','budget','dollar','money','much','how much'])) {
+
+
+
+          addMsg(answers.pricing, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['airport','ohare','o\'hare','midway','flight','ord','mdw','pickup','baggage','terminal','travel','flying','landing','arrival','departure','plane'])) {
+
+
+
+          addMsg(answers.airport, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['wedding','bride','groom','marry','reception','ceremony','bridal','prom','quince','bouquet','champagne'])) {
+
+
+
+          addMsg(answers.wedding, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['corporate','business','meeting','conference','executive','employee','office','account'])) {
+
+
+
+          addMsg(answers.corporate, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['group','charter','bus','team','convention','large','sports','school','tour','multiple people'])) {
+
+
+
+          addMsg(answers.group, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['child','booster','kids','baby','toddler','infant','children','little ones'])) {
+
+
+
+          addMsg(answers.childseat, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['cancel','refund','reschedule','cancellation','modify'])) {
+
+
+
+          addMsg(answers.cancel, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['area','serve','suburb','location','where','city'])) {
+
+
+
+          addMsg(answers.areas, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['hour','open','available','when','time','late','night','early','midnight','weekend','sunday','saturday'])) {
+
+
+
+          addMsg(answers.hours, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['multi','stop','multiple','route','errand','dropoff','several','stops'])) {
+
+
+
+          addMsg(answers.multistop, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['book','reserve','form','schedule','reservation','online','register','booking'])) {
+
+
+
+          addMsg(answers.booking, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['insure','safety','liability','licensed','permit','insurance','legal','trust','certified','bond'])) {
+
+
+
+          addMsg(answers.insurance, 'bot'); matched = true;
+
+
+
+        } else
+
+
+
+        if (hasWord(['human','talk','person','speak','agent','representative','real','dispatch'])) {
+
+
+
+          addMsg(answers.human, 'bot'); matched = true;
 
 
 
@@ -6201,7 +6333,11 @@ ul{list-style:none}
 
 
 
-        setTimeout(showOptions, 800);
+        // Show follow-up options attached to the last bot message (not a separate bubble)
+
+
+
+        setTimeout(appendOptions, 400);
 
 
 
